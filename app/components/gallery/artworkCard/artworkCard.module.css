@@ -1,0 +1,66 @@
+.card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 70%; /* ratio 7/10 */
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Infos sous l'image */
+.info {
+  padding: var(--space-md);
+}
+
+.info h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.info p {
+  font-size: 0.85rem;
+  color: var(--color-text-subtle);
+}
+
+/* Overlay au hover */
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.card:hover .hoverOverlay {
+  opacity: 1;
+}
+
+.btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
