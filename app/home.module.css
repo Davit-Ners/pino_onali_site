@@ -76,6 +76,7 @@
   font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: var(--space-md);
+  justify-self: center;
 }
 
 .right p {

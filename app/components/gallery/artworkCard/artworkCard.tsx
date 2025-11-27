@@ -31,7 +31,7 @@ export default function ArtworkCard({ artwork }: Props) {
 
         <div className={styles.hoverOverlay}>
             <Link href={interestHref} className={styles.btn}>
-            Manifester son intérêt
+            Cette œuvre m'intéresse
             </Link>
         </div>
         </div>

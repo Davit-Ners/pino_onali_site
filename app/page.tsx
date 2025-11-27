@@ -18,19 +18,9 @@ export default function HomePage() {
 
         {/* Bloc droite */}
         <div className={styles.right}>
-          <h3>LA FACE CACH���%E DE L&apos;ARTISTE</h3>
+          <h3>LA FACE CACHÉE DE L&apos;ARTISTE</h3>
           <p>
-            Personne ne se doutait de l���?Tartiste qui sommeillait en lui, mais
-            depuis 4 ans Pino Onali cr��e sans compter. Les pigments jaillissent
-            et d��bordent maintenant de ses toiles aux tailles de plus en plus
-            impressionnantes. Le r��sultat est surprenant et les murs de son
-            atelier ne suffisent plus ������ afficher cette rage de peindre.
-            <br />
-            <br />
-            Pino vous invite ������ ce voyage et ������ d��couvrir l���?Tautre c������t�� de ce
-            miroir ������ facettes o������ se refl������tent les couleurs de la vie. Une vie
-            foisonnante qui nous entra��ne des ��motions verdoyantes, rosso ������ un
-            petit clin d���?T���"il ������ la lune.
+            Personne ne se doutait de l’artiste qui sommellait en lui, mais depuis 4 ans Pino Onali crée sans compter. Les pigments jaillissent et débordent maintenant de ses toiles aux tailles de plus en plus impressionnantes. Le résultat est surprenant et les murs de son atelier ne suffisent plus à afficher cette rage de peinde. Pino vous invite à ce voyage et à découvrirl’autre coté de ce miroir à facettes où se reflètent les couleurs de la vie. Une vie foisonnante qui nous entraîne des émotions verde, rosso à un petit clin d’oeil à la lune.
           </p>
         </div>
       </div>
