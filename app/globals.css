@@ -1,26 +1,96 @@
-@import "tailwindcss";
+/* =========================================
+   VARIABLES GLOBALES – PINO ONALI
+========================================= */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ----- Colors ----- */
+  --color-bg-dark: #070918;            /* Bleu très sombre général */
+  --color-bg-overlay: rgba(0, 0, 0, 0.55); /* Overlay sombre sur images */
+
+  --color-text: #ffffff;
+  --color-text-subtle: #d0d0d0;
+  --color-text-inverse: #0f0f0f;
+
+  --color-border: rgba(255, 255, 255, 0.4); /* Bordures blanches semi */
+  --color-border-strong: rgba(255, 255, 255, 0.8);
+
+  --color-accent: #4a6aff; /* Pour hover et petits accents (optionnel) */
+
+  /* ----- Spacing ----- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 80px;
+
+  /* ----- Sizes ----- */
+  --max-width: 1200px;
+
+  /* ----- Fonts ----- */
+  --font-main: "Georgia", serif;
+  --font-alt: "Inter", sans-serif;
+
+  /* ----- Effects ----- */
+  --blur-bg: blur(6px);
+  --transition-fast: 0.25s ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =========================================
+   RESET + BASE
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  height: 100%;
+  background: var(--color-bg-dark);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  overflow-x: hidden;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-text-subtle);
+}
+
+/* =========================================
+   UTILITIES
+========================================= */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-outline {
+  padding: 12px 28px;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  background: transparent;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-text);
 }
