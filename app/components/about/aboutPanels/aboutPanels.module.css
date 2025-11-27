@@ -1,0 +1,82 @@
+.wrap {
+  padding: 0 var(--space-md);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.card {
+  position: relative;
+  padding: var(--space-lg);
+  border-radius: 14px;
+
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.18),
+    rgba(0, 0, 0, 0.85)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: var(--blur-bg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+
+  overflow: hidden;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-md);
+  font-family: var(--font-alt);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-subtle);
+}
+
+/* Lignes décoratives */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 255, 255, 0.14),
+    transparent 50%
+  );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Décalages pour casser la symétrie */
+.cardOne {
+  transform: translateY(10px);
+}
+
+.cardTwo {
+  transform: translateY(-10px);
+}
+
+.cardThree {
+  transform: translateY(20px);
+}
+
+@media (max-width: 1000px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cardOne,
+  .cardTwo,
+  .cardThree {
+    transform: translateY(0);
+  }
+}
