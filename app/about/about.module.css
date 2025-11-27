@@ -1,0 +1,4 @@
+.page {
+  padding-top: 140px; /* marge pour le header sticky */
+  padding-bottom: var(--space-2xl);
+}
