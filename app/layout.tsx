@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import PageBackground from "./components/home/pageBackground/pageBackground";
 
 export const metadata: Metadata = {
   title: "Pino Onali",
@@ -15,12 +16,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>
+      <body
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <PageBackground src="/bg1.jpg" />
         <Header />
-        <main style={{ 
-          // paddingTop: "100px",
-          // flex: 1
-        }}>
+        <main
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
           {children}
         </main>
         <Footer />
