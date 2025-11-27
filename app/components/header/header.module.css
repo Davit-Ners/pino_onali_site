@@ -22,8 +22,9 @@
 
 .logo {
   font-size: 1.4rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav {
@@ -32,6 +33,7 @@
 }
 
 .nav a {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   transition: opacity var(--transition-fast);
 }
