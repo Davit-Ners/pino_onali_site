@@ -23,7 +23,7 @@ export default function RootLayout({
           flexDirection: "column",
         }}
       >
-        <PageBackground src="/bg1.jpg" />
+        {/* <PageBackground src="/bg1.jpg" /> */}
         <Header />
         <main
           style={{
