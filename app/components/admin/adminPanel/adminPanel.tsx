@@ -15,13 +15,18 @@ export default function AdminPanel() {
     const [pendingDelete, setPendingDelete] = useState<Artwork | null>(null);
     
     const [toast, setToast] = useState<{
+        id: number;
         message: string;
         type: "success" | "error" | "info";
     } | null>(null);
 
     function showToast(type: "success" | "error" | "info", message: string) {
-        setToast({ type, message });
-    };
+        setToast({
+            id: Date.now(),
+            type,
+            message,
+        });
+    }
 
     function handleCreate(artwork: Omit<Artwork, "id" | "createdAt">) {
         const newArtwork: Artwork = {
@@ -107,6 +112,7 @@ export default function AdminPanel() {
         
         {toast && (
             <Toast
+                key={toast.id}
                 type={toast.type}
                 message={toast.message}
                 onClose={() => setToast(null)}
