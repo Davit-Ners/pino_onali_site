@@ -7,25 +7,37 @@ import ArtworkTable from "../artworkTable/artworkTable";
 import { artworks } from "@/app/lib/artworks";
 import { Artwork } from "@/app/galerie/page";
 import ConfirmDialog from "../confirmDialog/confirmDialog";
+import Toast from "../toast/toast";
 
 export default function AdminPanel() {
     const [realArtworks, setArtworks] = useState<Artwork[]>(artworks);
     const [editingArtwork, setEditingArtwork] = useState<Artwork | null>(null);
     const [pendingDelete, setPendingDelete] = useState<Artwork | null>(null);
+    
+    const [toast, setToast] = useState<{
+        message: string;
+        type: "success" | "error" | "info";
+    } | null>(null);
+
+    function showToast(type: "success" | "error" | "info", message: string) {
+        setToast({ type, message });
+    };
 
     function handleCreate(artwork: Omit<Artwork, "id" | "createdAt">) {
         const newArtwork: Artwork = {
-        ...artwork,
-        id: crypto.randomUUID(),
+            ...artwork,
+            id: crypto.randomUUID(),
         };
         setArtworks((prev) => [newArtwork, ...prev]);
+        showToast("success", "Œuvre ajoutée avec succès !");
     }
 
     function handleUpdate(updated: Artwork) {
         setArtworks((prev) =>
-        prev.map((a) => (a.id === updated.id ? updated : a))
+            prev.map((a) => (a.id === updated.id ? updated : a))
         );
         setEditingArtwork(null);
+        showToast("info", "Modifications enregistrées !");
     }
 
     function askDelete(artwork: Artwork) {
@@ -39,6 +51,7 @@ export default function AdminPanel() {
         setEditingArtwork(null);
         }
         setPendingDelete(null);
+        showToast("error", "Œuvre supprimée !");
     }
 
     function cancelDelete() {
@@ -91,6 +104,14 @@ export default function AdminPanel() {
             onConfirm={confirmDelete}
             onCancel={cancelDelete}
         />
+        
+        {toast && (
+            <Toast
+                type={toast.type}
+                message={toast.message}
+                onClose={() => setToast(null)}
+            />
+        )}
         </div>
     );
 };
