@@ -1,0 +1,17 @@
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: var(--space-xl);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}
