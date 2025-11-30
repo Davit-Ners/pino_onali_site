@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
         <div className={styles.container}>
-            <div className={styles.logo}>Pino Onali</div>
+            <div className={styles.logo}><Link href="/">Pino Onali</Link></div>
 
             <nav className={styles.nav}>
             <Link href="/">Accueil</Link>
