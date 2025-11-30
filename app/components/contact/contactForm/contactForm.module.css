@@ -1,0 +1,101 @@
+.card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  padding: var(--space-xl) var(--space-lg);
+  backdrop-filter: var(--blur-bg);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.7);
+}
+
+.card h2 {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-subtle);
+  margin-bottom: var(--space-lg);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.field input,
+.field textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-family: var(--font-main);
+  outline: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--color-border-strong);
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.button {
+  margin-top: var(--space-sm);
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+}
+
+.button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.success {
+  margin-top: var(--space-sm);
+  font-size: 0.9rem;
+  color: #22c55e;
+}
+
+.error {
+  margin-top: var(--space-sm);
+  font-size: 0.9rem;
+  color: #ef4444;
+}
