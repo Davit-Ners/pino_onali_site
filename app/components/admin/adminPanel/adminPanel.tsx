@@ -47,7 +47,7 @@ export default function AdminPanel() {
             <div className={styles.stats}>
             <div className={styles.statCard}>
                 <span className={styles.statLabel}>Œuvres publiées</span>
-                <span className={styles.statValue}>{artworks.length}</span>
+                <span className={styles.statValue}>{realArtworks.length}</span>
             </div>
             </div>
         </header>
@@ -61,8 +61,8 @@ export default function AdminPanel() {
             />
 
             <ArtworkTable
-            artworks={artworks}
-            onEdit={(artwork) => setEditingArtwork(artwork)}
+            artworks={realArtworks}
+            onEdit={(artrealArtworkswork) => setEditingArtwork(artrealArtworkswork)}
             onDelete={handleDelete}
             />
         </div>
