@@ -101,6 +101,14 @@ body.bg-contact {
   background-attachment: fixed;
 }
 
+body.bg-admin {
+  background-image: url("/bg4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* Overlay sombre derrière tout */
 body::before {
   content: "";
