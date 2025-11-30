@@ -1,0 +1,23 @@
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-xl);
+}
+
+.inner {
+  padding: var(--space-lg) var(--space-lg);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: var(--blur-bg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.inner h1 {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.inner p {
+  font-size: 1.02rem;
+  color: var(--color-text-subtle);
+  line-height: 1.6;
+}
