@@ -7,7 +7,7 @@ import { Artwork } from "@/app/galerie/page";
 type Props = {
     artworks: Artwork[];
     onEdit: (artwork: Artwork) => void;
-    onDelete: (id: string) => void;
+    onDelete: (artwork: Artwork) => void;
 };
 
 export default function ArtworkTable({ artworks, onEdit, onDelete }: Props) {
@@ -58,7 +58,7 @@ export default function ArtworkTable({ artworks, onEdit, onDelete }: Props) {
                     <button
                     type="button"
                     className={styles.deleteButton}
-                    onClick={() => onDelete(artwork.id)}
+                    onClick={() => onDelete(artwork)}
                     >
                     Supprimer
                     </button>

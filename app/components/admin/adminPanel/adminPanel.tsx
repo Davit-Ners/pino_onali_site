@@ -6,10 +6,12 @@ import ArtworkForm from "../artworkForm/artworkForm";
 import ArtworkTable from "../artworkTable/artworkTable";
 import { artworks } from "@/app/lib/artworks";
 import { Artwork } from "@/app/galerie/page";
+import ConfirmDialog from "../confirmDialog/confirmDialog";
 
 export default function AdminPanel() {
     const [realArtworks, setArtworks] = useState<Artwork[]>(artworks);
     const [editingArtwork, setEditingArtwork] = useState<Artwork | null>(null);
+    const [pendingDelete, setPendingDelete] = useState<Artwork | null>(null);
 
     function handleCreate(artwork: Omit<Artwork, "id" | "createdAt">) {
         const newArtwork: Artwork = {
@@ -26,12 +28,21 @@ export default function AdminPanel() {
         setEditingArtwork(null);
     }
 
-    function handleDelete(id: string) {
-        if (!confirm("Supprimer cette œuvre ?")) return;
-        setArtworks((prev) => prev.filter((a) => a.id !== id));
-        if (editingArtwork?.id === id) {
+    function askDelete(artwork: Artwork) {
+        setPendingDelete(artwork);
+    }
+
+    function confirmDelete() {
+        if (!pendingDelete) return;
+        setArtworks((prev) => prev.filter((a) => a.id !== pendingDelete.id));
+        if (editingArtwork?.id === pendingDelete.id) {
         setEditingArtwork(null);
         }
+        setPendingDelete(null);
+    }
+
+    function cancelDelete() {
+        setPendingDelete(null);
     }
 
     return (
@@ -63,9 +74,23 @@ export default function AdminPanel() {
             <ArtworkTable
             artworks={realArtworks}
             onEdit={(artrealArtworkswork) => setEditingArtwork(artrealArtworkswork)}
-            onDelete={handleDelete}
+            onDelete={askDelete}
             />
         </div>
+        
+        <ConfirmDialog
+            open={!!pendingDelete}
+            title="Supprimer cette œuvre ?"
+            message={
+            pendingDelete
+                ? `Êtes-vous sûr de vouloir supprimer « ${pendingDelete.title} » de la galerie ?`
+                : ""
+            }
+            confirmLabel="Supprimer"
+            cancelLabel="Annuler"
+            onConfirm={confirmDelete}
+            onCancel={cancelDelete}
+        />
         </div>
     );
 };

@@ -1,0 +1,80 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999; /* au-dessus de tout le reste */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.dialog {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+}
+
+.dialog h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.dialog p {
+  font-size: 0.95rem;
+  color: var(--color-text-subtle);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.cancelButton,
+.confirmButton {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  background: transparent;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.cancelButton {
+  color: var(--color-text-subtle);
+}
+
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text);
+}
+
+.confirmButton {
+  border-color: rgba(239, 68, 68, 0.7);
+  color: #fecaca;
+}
+
+.confirmButton:hover {
+  background: rgba(239, 68, 68, 0.24);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
+}
