@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import PageBackground from "./components/home/pageBackground/pageBackground";
+import BodyWrapper from "./bodyWrapper";
 
 export const metadata: Metadata = {
   title: "Pino Onali",
@@ -16,13 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <BodyWrapper>
         {/* <PageBackground src="/bg1.jpg" /> */}
         <Header />
         <main
@@ -37,7 +32,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-      </body>
+      </BodyWrapper>
     </html>
   );
 }

@@ -61,7 +61,40 @@ body {
   position: relative;
   z-index: 0;
 
+  /* background-image: url("/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+}
+
+/* Backgrounds par page */
+body.bg-home {
   background-image: url("/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.bg-galerie {
+  background-image: url("/bg2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.bg-about {
+  background-image: url("/bg5.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.bg-contact {
+  background-image: url("/bg3.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
