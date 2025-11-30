@@ -31,7 +31,30 @@
 /* Stats */
 .stats {
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
+  gap: var(--space-sm);
+}
+
+.logoutButton {
+  margin-top: var(--space-sm);
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: var(--color-text-subtle);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.logoutButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7);
 }
 
 .statCard {

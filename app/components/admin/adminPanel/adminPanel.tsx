@@ -8,11 +8,15 @@ import { artworks } from "@/app/lib/artworks";
 import { Artwork } from "@/app/galerie/page";
 import ConfirmDialog from "../confirmDialog/confirmDialog";
 import Toast from "../toast/toast";
+import { useRouter } from "next/navigation";
+import LogoutDialog from "../logoutDialog/logoutDialog";
 
 export default function AdminPanel() {
     const [realArtworks, setArtworks] = useState<Artwork[]>(artworks);
     const [editingArtwork, setEditingArtwork] = useState<Artwork | null>(null);
     const [pendingDelete, setPendingDelete] = useState<Artwork | null>(null);
+    const [open, setOpen] = useState(false);
+    const router = useRouter();
     
     const [toast, setToast] = useState<{
         id: number;
@@ -62,6 +66,15 @@ export default function AdminPanel() {
     function cancelDelete() {
         setPendingDelete(null);
     }
+    
+    async function handleLogout() {
+        try {
+            await fetch("/api/admin/logout", { method: "POST" }); // à implémenter si pas encore fait
+        } catch (e) {
+        // même si ça fail côté API, on peut quand même rediriger
+        }
+        window.location.href = "/";
+    }
 
     return (
         <div className={styles.panel}>
@@ -78,6 +91,14 @@ export default function AdminPanel() {
                 <span className={styles.statLabel}>Œuvres publiées</span>
                 <span className={styles.statValue}>{realArtworks.length}</span>
             </div>
+            
+            <button
+                type="button"
+                className={styles.logoutButton}
+                onClick={() => setOpen(true)}
+            >
+                Se déconnecter
+            </button>
             </div>
         </header>
 
@@ -118,6 +139,11 @@ export default function AdminPanel() {
                 onClose={() => setToast(null)}
             />
         )}
+        <LogoutDialog
+            open={open}
+            onCancel={() => setOpen(false)}
+            onConfirm={handleLogout}
+        />
         </div>
     );
 };

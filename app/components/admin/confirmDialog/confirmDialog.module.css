@@ -1,16 +1,29 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 999; /* au-dessus de tout le reste */
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.overlayyy {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
 }
 
 .backdrop {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.backdroppp {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(4px);
 }
 
@@ -34,6 +47,34 @@
 }
 
 .dialog p {
+  font-size: 0.95rem;
+  color: var(--color-text-subtle);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.dialoggg {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+  left: 30%;
+  top: 10%;
+}
+
+.dialoggg h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.dialoggg p {
   font-size: 0.95rem;
   color: var(--color-text-subtle);
   margin-bottom: var(--space-lg);

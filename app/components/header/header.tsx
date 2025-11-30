@@ -1,7 +1,10 @@
 import Link from "next/link";
 import styles from "./header.module.css";
+import { cookies } from "next/headers";
 
-export default function Header() {
+export default async function Header() {
+    const isAdmin = (await cookies()).get("pino_admin")?.value === '1';
+
     return (
         <header className={styles.header}>
         <div className={styles.container}>
@@ -12,6 +15,7 @@ export default function Header() {
             <Link href="/galerie">Galerie</Link>
             <Link href="/about">Á Propos</Link>
             <Link href="/contact">Contact</Link>
+            {isAdmin && <Link className={styles.adminBadge} href="/admin">Admin</Link>}
             </nav>
         </div>
         </header>

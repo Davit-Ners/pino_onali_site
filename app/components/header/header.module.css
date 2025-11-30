@@ -31,6 +31,7 @@
 .nav {
   display: flex;
   gap: var(--space-lg);
+  align-items: center;
 }
 
 .nav a {
@@ -41,4 +42,20 @@
 
 .nav a:hover {
   opacity: 0.7;
+}
+
+.adminBadge {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 6px;
+  background: rgba(24, 163, 0, 0.4);
+  color: white;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }
