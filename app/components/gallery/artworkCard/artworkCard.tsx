@@ -1,7 +1,9 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { Artwork } from "@/app/galerie/page";
 import styles from "./artworkCard.module.css";
+import { useTranslations } from "../../languageProvider/languageProvider";
 
 type Props = {
     artwork: Artwork;
@@ -11,6 +13,7 @@ export default function ArtworkCard({ artwork }: Props) {
     const interestHref = `/contact?artwork=${encodeURIComponent(
         artwork.title
     )}`;
+    const t = useTranslations();
 
     return (
         <div className={styles.card}>
@@ -31,7 +34,7 @@ export default function ArtworkCard({ artwork }: Props) {
 
         <div className={styles.hoverOverlay}>
             <Link href={interestHref} className={styles.btn}>
-            Cette œuvre m'intéresse
+            {t.gallery.interess}
             </Link>
         </div>
         </div>

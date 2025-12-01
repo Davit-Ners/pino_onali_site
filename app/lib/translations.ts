@@ -50,6 +50,12 @@ interface Translations {
       muteMessage: string;
     }
   };
+  gallery: {
+    title: string;
+    subtitle: string;
+    interess: string;
+    soldout: string;
+  };
   aboutPage: {
   };
   contactPage: {
@@ -103,6 +109,12 @@ export const translations: Record<Language, Translations> = {
         overTitle: "Exposition",
         title: "« Objectif Lune »"
       }
+    },
+    gallery: {
+        title: "Galerie",
+        subtitle: "Découvrez une sélection d’œuvres issues de l’univers de Pino Onali.",
+        interess: "Cette œuvre m'intéresse",
+        soldout: "SOLD OUT"
     },
     aboutPage: {
       kicker: "À propos, Arthur Boutellis",
@@ -276,6 +288,12 @@ export const translations: Record<Language, Translations> = {
         title: "« Objective Moon »"
       }
     },
+    gallery: {
+      title: "Gallery",
+      subtitle: "Discover a selection of artworks from the universe of Pino Onali.",
+      interess: "I am interested in this artwork",
+      soldout: "SOLD OUT"
+    },
     aboutPage: {
       kicker: "About, Arthur Boutellis",
       title: {
@@ -447,6 +465,12 @@ export const translations: Record<Language, Translations> = {
         overTitle: "Tentoonstelling",
         title: "« Objectief Maan »"
       }
+    },
+    gallery: {
+      title: "Galerij",
+      subtitle: "Ontdek een selectie van kunstwerken uit het universum van Pino Onali.",
+      interess: "Ik ben geïnteresseerd in dit kunstwerk",
+      soldout: "UITVERKOCHT"
     },
     aboutPage: {
       kicker: "Over, Arthur Boutellis",
