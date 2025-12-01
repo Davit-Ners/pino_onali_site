@@ -3,10 +3,12 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "./contactForm.module.css";
+import { useTranslations } from "../../languageProvider/languageProvider";
 
 export default function ContactForm() {
     const searchParams = useSearchParams();
     const artwork = searchParams.get("artwork");
+    const t = useTranslations();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -15,7 +17,7 @@ export default function ContactForm() {
 
     useEffect(() => {
         if (artwork && !message) {
-        setMessage(`Je suis intéressé(e) par l’œuvre : ${artwork}\n\n`);
+            setMessage(`${t.contactPage.form.interess}${artwork}\n\n`);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [artwork]);
@@ -47,45 +49,43 @@ export default function ContactForm() {
 
     return (
         <div className={styles.card}>
-        <h2>Formulaire de contact</h2>
-        <p className={styles.subtitle}>
-            Remplissez ce formulaire pour envoyer un message directement à l’artiste.
-        </p>
+        <h2>{t.contactPage.form.title}</h2>
+        <p className={styles.subtitle}>{t.contactPage.form.subtitle}</p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.field}>
-            <label htmlFor="name">Nom</label>
+            <label htmlFor="name">{t.contactPage.form.nameLabel}</label>
             <input
                 id="name"
                 type="text"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Votre nom"
+                placeholder={t.contactPage.form.nameEx}
             />
             </div>
 
             <div className={styles.field}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t.contactPage.form.emailLabel}</label>
             <input
                 id="email"
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="vous@example.com"
+                placeholder={t.contactPage.form.emailEx}
             />
             </div>
 
             <div className={styles.field}>
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">{t.contactPage.form.messageLabel}</label>
             <textarea
                 id="message"
                 required
                 rows={6}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Votre message..."
+                placeholder={t.contactPage.form.messageEx}
             />
             </div>
 
@@ -94,18 +94,14 @@ export default function ContactForm() {
             className={styles.button}
             disabled={status === "loading"}
             >
-            {status === "loading" ? "Envoi..." : "Envoyer le message"}
+            {status === "loading" ? `${t.contactPage.form.buttonLoading}` : `${t.contactPage.form.button}`}
             </button>
 
             {status === "success" && (
-            <p className={styles.success}>
-                Merci, votre message a bien été envoyé (simulation). Pino vous répondra dès que possible.
-            </p>
+            <p className={styles.success}>{t.contactPage.form.succesMsg}</p>
             )}
             {status === "error" && (
-            <p className={styles.error}>
-                Une erreur est survenue. Veuillez réessayer plus tard.
-            </p>
+            <p className={styles.error}>{t.contactPage.form.errorMsg}</p>
             )}
         </form>
         </div>

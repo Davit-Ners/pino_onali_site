@@ -59,6 +59,32 @@ interface Translations {
   aboutPage: {
   };
   contactPage: {
+    hero: {
+      title: string;
+      subtitle: string;
+    },
+    infos: {
+      title: string;
+      subtitle: string;
+      phone: string;
+      email: string;
+      footer: string;
+    },
+    form: {
+      title: string;
+      subtitle: string;
+      nameLabel: string;
+      nameEx: string;
+      emailLabel: string;
+      emailEx: string;
+      messageLabel: string;
+      messageEx: string;
+      button: string;
+      buttonLoading: string;
+      succesMsg: string;
+      errorMsg: string;
+      interess: string;
+    }
   };
   footer: {
     location: string;
@@ -220,27 +246,32 @@ export const translations: Record<Language, Translations> = {
       }
     },
     contactPage: {
-      title: "Contact",
-      description:
-        "Une mission, un stage ou un projet à lancer ? Écrivez-moi, je réponds rapidement avec des pistes concrètes.",
-      contacts: [
-        {
-          label: "Email",
-          href: "mailto:hello@davit.dev",
-          description: "Réponse sous 24h pour les opportunités de stage ou de collaboration.",
-        },
-        {
-          label: "LinkedIn",
-          href: "https://www.linkedin.com/in/davit-ners/",
-          description: "Pour discuter du poste, de la culture produit ou de l'équipe.",
-        },
-        {
-          label: "GitHub",
-          href: "https://github.com/davit-ners",
-          description: "Exploration de mes projets open-source et contributions récentes.",
-        },
-      ],
-      downloadCv: "Télécharger mon CV",
+      hero: {
+        title: "Contact",
+        subtitle: "Pour toute question, intérêt pour une œuvre ou projet d’exposition, vous pouvez contacter directement Pino Onali ou utiliser le formulaire."
+      },
+      infos: {
+        title: "Coordonnées",
+        subtitle: "Pino est disponible pour des demandes d’acquisition d’œuvres, des projets d’exposition ou des commandes spécifiques.",
+        phone: "Téléphone",
+        email: "Email",
+        footer: "Vous pouvez également utiliser le formulaire de contact pour préciser l’œuvre ou le type de projet qui vous intéresse."
+      },
+      form: {
+        title: "Formulaire de contact",
+        subtitle: "Remplissez ce formulaire pour envoyer un message directement à l’artiste.",
+        nameLabel: "NOM",
+        nameEx: "Votre nom",
+        emailLabel: "EMAIL",
+        emailEx: "vous@example.com",
+        messageLabel: "MESSAGE",
+        messageEx: "Votre message...",
+        button: "ENVOYER LE MESSAGE",
+        buttonLoading: "Envoi...",
+        succesMsg: "Merci, votre message a bien été envoyé. Pino vous répondra dès que possible.",
+        errorMsg: "Une erreur est survenue. Veuillez réessayer plus tard.",
+        interess: "Je suis intéressé(e) par l’œuvre : "
+      }
     },
     footer: {
       location: "Bruxelles & en ligne",
@@ -398,27 +429,32 @@ export const translations: Record<Language, Translations> = {
       }
     },
     contactPage: {
-      title: "Contact",
-      description:
-        "Have a mission, internship or project in mind? Reach out and I'll reply quickly with actionable ideas.",
-      contacts: [
-        {
-          label: "Email",
-          href: "mailto:hello@davit.dev",
-          description: "Replies within 24h for internships or collaboration opportunities.",
-        },
-        {
-          label: "LinkedIn",
-          href: "https://www.linkedin.com/in/davit-ners/",
-          description: "Let's talk about the role, product culture or team.",
-        },
-        {
-          label: "GitHub",
-          href: "https://github.com/davit-ners",
-          description: "Dive into my open-source work and recent commits.",
-        },
-      ],
-      downloadCv: "Download my resume",
+      hero: {
+        title: "Contact",
+        subtitle: "For any questions, interest in an artwork, or exhibition project, you can contact Pino Onali directly or use the form."
+      },
+      infos: {
+        title: "Contact Information",
+        subtitle: "Pino is available for artwork acquisition requests, exhibition projects, or specific commissions.",
+        phone: "Phone",
+        email: "Email",
+        footer: "You can also use the contact form to specify the artwork or type of project you are interested in."
+      },
+      form: {
+        title: "Contact Form",
+        subtitle: "Fill out this form to send a message directly to the artist.",
+        nameLabel: "NAME",
+        nameEx: "Your name",
+        emailLabel: "EMAIL",
+        emailEx: "you@example.com",
+        messageLabel: "MESSAGE",
+        messageEx: "Your message...",
+        button: "SEND MESSAGE",
+        buttonLoading: "Sending...",
+        succesMsg: "Thank you, your message has been sent successfully. Pino will reply as soon as possible.",
+        errorMsg: "An error occurred. Please try again later.",
+        interess: "I am interested in the artwork: "
+      }
     },
     footer: {
       location: "Brussels & online",
@@ -576,27 +612,32 @@ export const translations: Record<Language, Translations> = {
       }
     },
     contactPage: {
-      title: "Contact",
-      description:
-        "Heb je een opdracht, stage of project? Stuur me een bericht; ik antwoord snel met concrete pistes.",
-      contacts: [
-        {
-          label: "Email",
-          href: "mailto:hello@davit.dev",
-          description: "Antwoord binnen 24u voor stage- of samenwerkingskansen.",
-        },
-        {
-          label: "LinkedIn",
-          href: "https://www.linkedin.com/in/davit-ners/",
-          description: "Praat over de rol, productcultuur of het team.",
-        },
-        {
-          label: "GitHub",
-          href: "https://github.com/davit-ners",
-          description: "Ontdek mijn open-source werk en recente commits.",
-        },
-      ],
-      downloadCv: "Download mijn cv",
+      hero: {
+        title: "Contact",
+        subtitle: "Voor vragen, interesse in een kunstwerk, of tentoonstellingsprojecten kunt u direct contact opnemen met Pino Onali of het formulier gebruiken."
+      },
+      infos: {
+        title: "Contactgegevens",
+        subtitle: "Pino is beschikbaar voor verzoeken tot aankoop van kunstwerken, tentoonstellingsprojecten of specifieke opdrachten.",
+        phone: "Telefoon",
+        email: "E-mail",
+        footer: "U kunt ook het contactformulier gebruiken om het kunstwerk of het type project waarin u geïnteresseerd bent te specificeren."
+      },
+      form: {
+        title: "Contactformulier",
+        subtitle: "Vul dit formulier in om een bericht rechtstreeks naar de kunstenaar te sturen.",
+        nameLabel: "NAAM",
+        nameEx: "Uw naam",
+        emailLabel: "E-MAILADRES",
+        emailEx: "u@voorbeeld.com",
+        messageLabel: "BERICHT",
+        messageEx: "Uw bericht...",
+        button: "BERICHT VERZENDEN",
+        buttonLoading: "Verzenden...",
+        succesMsg: "Bedankt, uw bericht is succesvol verzonden. Pino zal zo snel mogelijk antwoorden.",
+        errorMsg: "Er is een fout opgetreden. Probeer het later opnieuw.",
+        interess: "Ik ben geïnteresseerd in het kunstwerk: "
+      }
     },
     footer: {
       location: "Brussel & online",
