@@ -184,3 +184,15 @@ main {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.55);  /* hover */
 }
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  body.bg-home {
+    background-image: url("/bg-mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
