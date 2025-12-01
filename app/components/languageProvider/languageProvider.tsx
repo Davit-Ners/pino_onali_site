@@ -16,6 +16,8 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
+const SUPPORTED_LANGUAGES: Language[] = ["fr", "en", "nl"];
+
 export default function LanguageProvider({ children }: LanguageProviderProps) {
     const [language, setLanguage] = useState<Language>(defaultLanguage);
     const [mounted, setMounted] = useState(false);
@@ -26,10 +28,14 @@ export default function LanguageProvider({ children }: LanguageProviderProps) {
         }
 
         const stored = window.localStorage.getItem(STORAGE_KEY);
-        if (stored === "fr" || stored === "en") {
-        setLanguage(stored);
-        } else if (typeof navigator !== "undefined" && navigator.language.startsWith("en")) {
-        setLanguage("en");
+        if (stored && SUPPORTED_LANGUAGES.includes(stored as Language)) {
+            setLanguage(stored as Language);
+        } else if (typeof navigator !== "undefined") {
+            if (navigator.language.startsWith("nl")) {
+                setLanguage("nl");
+            } else if (navigator.language.startsWith("en")) {
+                setLanguage("en");
+            }
         }
         setMounted(true);
     }, []);
