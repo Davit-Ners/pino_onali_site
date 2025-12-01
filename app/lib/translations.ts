@@ -14,13 +14,10 @@ interface TimelineItem {
 interface Translations {
   skipToContent: string;
   nav: {
+    home: string;
+    gallery: string;
     about: string;
-    tunning: string;
-    sections: Array<{
-      id: string;
-      label: string;
-    }>;
-    cta: string;
+    contact: string;
   };
   themeToggle: {
     light: string;
@@ -98,15 +95,10 @@ export const translations: Record<Language, Translations> = {
   fr: {
     skipToContent: "Aller au contenu",
     nav: {
+      home: "Accueil",
+      gallery: "Galerie",
       about: "À Propos",
-      tunning: "Accordage Piano",
-      sections: [
-        { id: 'disciplines', label: 'Cours' },
-        { id: 'tarifs', label: 'Tarifs' },
-        { id: 'avis', label: 'Avis' },
-        { id: 'contact', label: 'Contact' },
-      ],
-      cta: "Cours d'essai"
+      contact: "Contact"
     },
     themeToggle: {
       light: "Clair",
@@ -281,15 +273,10 @@ export const translations: Record<Language, Translations> = {
   en: {
     skipToContent: "Skip to content",
     nav: {
+      home: "Home",
+      gallery: "Gallery",
       about: "About",
-      tunning: "Piano Tuning",
-      sections: [
-        { id: 'disciplines', label: 'Lessons' },
-        { id: 'tarifs', label: 'Pricing' },
-        { id: 'avis', label: 'Testamonials' },
-        { id: 'contact', label: 'Contact' },
-      ],
-      cta: "Trial"
+      contact: "Contact"
     },
     themeToggle: {
       light: "Light",
@@ -464,15 +451,10 @@ export const translations: Record<Language, Translations> = {
   nl: {
     skipToContent: "Ga naar de inhoud",
     nav: {
+      home: "Home",
+      gallery: "Galerij",
       about: "Over",
-      tunning: "Piano stemmen",
-      sections: [
-        { id: 'disciplines', label: 'Lessen' },
-        { id: 'tarifs', label: 'Prijzen' },
-        { id: 'avis', label: 'Beoordelingen' },
-        { id: 'contact', label: 'Contact' },
-      ],
-      cta: "Proefles"
+      contact: "Contact"
     },
     themeToggle: {
       light: "Licht",
