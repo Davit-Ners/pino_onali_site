@@ -4,6 +4,7 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import PageBackground from "./components/home/pageBackground/pageBackground";
 import BodyWrapper from "./bodyWrapper";
+import LanguageProvider from "./components/languageProvider/languageProvider";
 
 export const metadata: Metadata = {
   title: "Pino Onali",
@@ -17,6 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <LanguageProvider>
       <BodyWrapper>
         {/* <PageBackground src="/bg1.jpg" /> */}
         <Header />
@@ -33,6 +35,7 @@ export default function RootLayout({
         </main>
         <Footer />
       </BodyWrapper>
+      </LanguageProvider>
     </html>
   );
 };
