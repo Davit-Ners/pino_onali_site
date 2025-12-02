@@ -1,3 +1,7 @@
+ "use client";
+
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import styles from "./confirmDialog.module.css";
 
 type Props = {
@@ -19,31 +23,38 @@ export default function ConfirmDialog({
     onConfirm,
     onCancel,
 }: Props) {
-    if (!open) return null;
+    const [mounted, setMounted] = useState(false);
 
-    return (
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted || !open) return null;
+
+    return createPortal(
         <div className={styles.overlay}>
-        <div className={styles.backdrop} onClick={onCancel} />
-        <div className={styles.dialog}>
-            <h3>{title}</h3>
-            <p>{message}</p>
-            <div className={styles.actions}>
-            <button
-                type="button"
-                className={styles.cancelButton}
-                onClick={onCancel}
-            >
-                {cancelLabel}
-            </button>
-            <button
-                type="button"
-                className={styles.confirmButton}
-                onClick={onConfirm}
-            >
-                {confirmLabel}
-            </button>
+            <div className={styles.backdrop} onClick={onCancel} />
+            <div className={styles.dialog}>
+                <h3>{title}</h3>
+                <p>{message}</p>
+                <div className={styles.actions}>
+                    <button
+                        type="button"
+                        className={styles.cancelButton}
+                        onClick={onCancel}
+                    >
+                        {cancelLabel}
+                    </button>
+                    <button
+                        type="button"
+                        className={styles.confirmButton}
+                        onClick={onConfirm}
+                    >
+                        {confirmLabel}
+                    </button>
+                </div>
             </div>
-        </div>
-        </div>
+        </div>,
+        document.body
     );
 };

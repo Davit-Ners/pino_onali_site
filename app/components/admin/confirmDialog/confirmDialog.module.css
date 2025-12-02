@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-md);
+  overflow-y: auto;
 }
 
 .backdrop,
@@ -18,11 +19,13 @@
 }
 
 .dialog {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   max-width: 480px;
-  width: min(520px, 100%);
-  margin: 0 auto;
+  width: min(520px, 90vw);
   padding: var(--space-xl) var(--space-lg);
   border-radius: 18px;
   background: rgba(0, 0, 0, 0.9);
@@ -45,11 +48,13 @@
 }
 
 .dialoggg {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   max-width: 480px;
-  width: min(520px, 100%);
-  margin: 0 auto;
+  width: min(520px, 90vw);
   padding: var(--space-xl) var(--space-lg);
   border-radius: 18px;
 
@@ -112,18 +117,6 @@
 }
 
 @media (max-width: 640px) {
-  .overlay,
-  .overlayyy {
-    align-items: flex-start;
-  }
-
-  .dialog,
-  .dialoggg {
-    width: 100%;
-    margin-top: var(--space-xl);
-    padding: var(--space-lg);
-  }
-
   .actions {
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -133,5 +126,13 @@
   .confirmButton {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialog,
+  .dialoggg {
+    width: 100%;
+    padding: var(--space-lg);
   }
 }
