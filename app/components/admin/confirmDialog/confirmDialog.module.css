@@ -1,44 +1,35 @@
-.overlay {
+.overlay,
+.overlayyy {
   position: fixed;
   inset: 0;
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--space-md);
 }
 
-.overlayyy {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-}
-
-.backdrop {
+.backdrop,
+.backdroppp {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
 }
 
-.backdroppp {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
-}
-
 .dialog {
   position: relative;
   z-index: 1;
-  max-width: 420px;
-  width: 100%;
-  margin: 0 var(--space-md);
+  max-width: 480px;
+  width: min(520px, 100%);
+  margin: 0 auto;
   padding: var(--space-xl) var(--space-lg);
   border-radius: 18px;
-
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .dialog h3 {
@@ -56,17 +47,17 @@
 .dialoggg {
   position: relative;
   z-index: 1;
-  max-width: 420px;
-  width: 100%;
-  margin: 0 var(--space-md);
+  max-width: 480px;
+  width: min(520px, 100%);
+  margin: 0 auto;
   padding: var(--space-xl) var(--space-lg);
   border-radius: 18px;
 
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
-  left: 30%;
-  top: 10%;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .dialoggg h3 {
@@ -118,4 +109,29 @@
   background: rgba(239, 68, 68, 0.24);
   transform: translateY(-1px);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 640px) {
+  .overlay,
+  .overlayyy {
+    align-items: flex-start;
+  }
+
+  .dialog,
+  .dialoggg {
+    width: 100%;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+    text-align: center;
+  }
 }
