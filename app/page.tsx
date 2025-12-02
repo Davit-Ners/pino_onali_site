@@ -1,4 +1,5 @@
 'use client';
+import HomeNewsSection from "./components/home/homeNewsSection/homeNewsSection";
 import HomeVideoSection from "./components/home/videoSection";
 import { useTranslations } from "./components/languageProvider/languageProvider";
 import styles from "./home.module.css";
@@ -31,7 +32,8 @@ export default function HomePage() {
       </section>
 
       {/* SECTION VIDÉO */}
+      <HomeNewsSection />
       <HomeVideoSection />
     </>
   );
-}
+};

@@ -45,6 +45,14 @@ interface Translations {
       title: string;
       content: string;
       muteMessage: string;
+    },
+    news: {
+      kicker:string;
+      title: string;
+      subtitle: string;
+      meta: string;
+      description: string;
+      ctaLabel: string;
     }
   };
   gallery: {
@@ -126,6 +134,14 @@ export const translations: Record<Language, Translations> = {
         muteMessage: "La vidéo démarre en silence. Activez le son si vous le souhaitez.",
         overTitle: "Exposition",
         title: "« Objectif Lune »"
+      },
+      news: {
+        kicker: "Prochaine exposition",
+        title: "Sous les lunes de Bruxelles",
+        subtitle: "Une série d’œuvres autour des astres et constellations.",
+        meta: "Bruxelles — 12 > 28 avril 2025",
+        description: "Texte de présentation de l’expo…",
+        ctaLabel: "En savoir plus"
       }
     },
     gallery: {
@@ -135,107 +151,7 @@ export const translations: Record<Language, Translations> = {
         soldout: "SOLD OUT"
     },
     aboutPage: {
-      kicker: "À propos, Arthur Boutellis",
-      title: {
-        t1: "Un prof ",
-        t2: "passionné ",
-        t3: "& exigeant, orienté ",
-        t4: "résultats"
-      },
-      points: {
-        p1: "Programmes personnalisés (débutant → avancé)",
-        p2: "Support audio/vidéo & fiches PDF",
-        p3: "Préparation concerts, auditions & enregistrements"
-      },
-      lead: "10+ ans de scène et studio, musicien dans plusieurs groupes dont le groupe DJYN. Une pédagogie moderne, concrète, et des objectifs mesurables pour progresser chaque semaine — en studio, à domicile ou en visio.",
-      bio: {
-        intro: "Formé sur le terrain et en académie, j’accompagne des élèves de tous âges. Mon approche : partir de votre musique, structurer vos objectifs, et construire des automatismes techniques qui libèrent la créativité.",
-        title: "Parcours & philosophie",
-        cards: [
-          {
-            title: "De la scène à la salle de cours",
-            text: "Expérience live (groupes, premières parties, studio). Ce vécu nourrit une pédagogie concrète : travail du son, présence scénique, gestion du trac.",
-          },
-          {
-            title: "Méthode progressive & mesurable",
-            text: "Roadmap par trimestre : morceaux cibles, techniques, mini-projets. Chaque cours se conclut par des points d’action et un support (PDF/vidéo).",
-          },
-          {
-            title: "Styles & transversalité",
-            text: "Rock/metal, pop, funk, musiques actuelles. Harmonies, rythme, oreille : on relie la théorie à la pratique, tout de suite.",
-          },
-        ],
-        values: {
-          strong: {
-            s1: "Bienveillance ",
-            s2: "Clarté ",
-            s3: "Efficacité ",
-          },
-          text: {
-            t1: "sans complaisance",
-            t2: "des objectifs",
-            t3: "& envie",
-          }
-        }
-      },
-      certifications: {
-        title: "Diplômes & certifications",
-        items: [
-          { title: "Certificat Pédagogique", org: "Conservatoire XYZ", year: "2018" },
-          { title: "Formation MAO & Enregistrement", org: "Studio ABC", year: "2019" },
-          { title: "Premiers secours & voix", org: "Formation Santé Artistes", year: "2021" },
-        ]
-      },
-      contact: {
-        title: "Discutons de vos objectifs",
-        sub: "Décrivez votre niveau et ce que vous voulez jouer. Je vous propose un plan simple dès le premier cours.",
-        cta: "Réserver un cours d’essai"
-      },
-      pedagogy: {
-        title: "Pédagogie & méthode",
-        items: [
-          { title: "Plan perso", desc: "Objectifs trimestriels, morceaux cibles, techniques clés." },
-          { title: "Supports clairs", desc: "PDF, backing tracks, vidéos récap, tout centralisé." },
-          { title: "Rituels efficaces", desc: "Structuration de la pratique (20–30 min/jour)." },
-          { title: "Mise en pratique", desc: "Mini-concert, enregistrement, défi mensuel." },
-          { title: "Feedback précis", desc: "Critères simples : rythme, justesse, son, intention." },
-          { title: "Suivi", desc: "Bilan mensuel + conseils de progression." },
-        ]
-      },
-      studio: {
-        title: "Studio & formats de cours",
-        gallery: [
-          {
-            alt: "Coin guitare & amplis du studio",
-            img: "/gallery/studio-1.jpg",
-            caption: "Guitare/Basse — sons modernes, travail du groove"
-          },
-          {
-            alt: "Clavier et setup enregistrement",
-            img: "/gallery/studio-2.png",
-            caption: "Piano/Clavier — harmonie pop/rock"
-          },
-          {
-            alt: "Micro de chant et cabine",
-            img: "/gallery/studio-3.jpg",
-            caption: "Chant — respiration, justesse, présence"
-          }
-        ],
-        format: [
-          {
-            title: "En studio",
-            text: "Matériel pro, écoute de qualité, captations possibles pour suivre vos progrès."
-          },
-          {
-            title: "À domicile",
-            text: "Confort maximal. Même méthode, supports & suivi identiques."
-          },
-          {
-            title: "En visio",
-            text: "Setup optimisé (cam + son). Partage d’écran, fichiers et exercices en direct."
-          }
-        ]
-      }
+
     },
     contactPage: {
       hero: {
@@ -304,6 +220,14 @@ export const translations: Record<Language, Translations> = {
         muteMessage: "The video starts silently. Activate the sound if you wish.",
         overTitle: "Exhibition",
         title: "« Objective Moon »"
+      },
+      news: {
+        kicker: "Prochaine exposition",
+        title: "Sous les lunes de Bruxelles",
+        subtitle: "Une série d’œuvres autour des astres et constellations.",
+        meta: "Bruxelles — 12 > 28 avril 2025",
+        description: "Texte de présentation de l’expo…",
+        ctaLabel: "En savoir plus"
       }
     },
     gallery: {
@@ -313,107 +237,7 @@ export const translations: Record<Language, Translations> = {
       soldout: "SOLD OUT"
     },
     aboutPage: {
-      kicker: "About, Arthur Boutellis",
-      title: {
-        t1: "A ",
-        t2: "passionate ",
-        t3: "& demanding teacher, focused on ",
-        t4: "results"
-      },
-      points: {
-        p1: "Personalized programs (beginner → advanced)",
-        p2: "Audio/video materials & PDF sheets",
-        p3: "Concert, audition & recording preparation"
-      },
-      lead: "10+ years of live and studio experience, musician in several bands including DJYN. A modern and practical teaching approach, with measurable goals to make progress every week — whether in the studio, at home, or online.",
-      bio: {
-        intro: "Trained both on stage and in academies, I teach students of all ages. My approach: start from your music, structure your goals, and build technical habits that free your creativity.",
-        title: "Background & Philosophy",
-        cards: [
-          {
-            title: "From the stage to the classroom",
-            text: "Live experience (bands, opening acts, studio). This background fuels a hands-on teaching method: tone work, stage presence, and managing stage fright.",
-          },
-          {
-            title: "Progressive & measurable method",
-            text: "Quarterly roadmap: target songs, techniques, mini-projects. Each lesson ends with clear action points and a dedicated support (PDF/video).",
-          },
-          {
-            title: "Styles & versatility",
-            text: "Rock/metal, pop, funk, contemporary music. Harmony, rhythm, ear training: theory and practice are always connected.",
-          },
-        ],
-        values: {
-          strong: {
-            s1: "Kindness ",
-            s2: "Clarity ",
-            s3: "Efficiency ",
-          },
-          text: {
-            t1: "without complacency",
-            t2: "of goals",
-            t3: "& motivation",
-          }
-        }
-      },
-      certifications: {
-        title: "Degrees & Certifications",
-        items: [
-          { title: "Pedagogy Certificate", org: "Conservatory XYZ", year: "2018" },
-          { title: "Music Production & Recording Training", org: "Studio ABC", year: "2019" },
-          { title: "First Aid & Voice Care", org: "Artists Health Training", year: "2021" },
-        ]
-      },
-      contact: {
-        title: "Let’s talk about your goals",
-        sub: "Tell me your level and what you want to play. I’ll propose a simple plan from the very first lesson.",
-        cta: "Book a trial lesson"
-      },
-      pedagogy: {
-        title: "Pedagogy & Method",
-        items: [
-          { title: "Personal plan", desc: "Quarterly goals, target songs, key techniques." },
-          { title: "Clear materials", desc: "PDFs, backing tracks, recap videos — all in one place." },
-          { title: "Effective routines", desc: "Structured practice (20–30 min/day)." },
-          { title: "Hands-on practice", desc: "Mini-concert, recording, monthly challenge." },
-          { title: "Precise feedback", desc: "Simple criteria: rhythm, pitch, tone, intent." },
-          { title: "Progress tracking", desc: "Monthly review + progress tips." },
-        ]
-      },
-      studio: {
-        title: "Studio & lesson formats",
-        gallery: [
-          {
-            alt: "Guitar and amp corner of the studio",
-            img: "/gallery/studio-1.jpg",
-            caption: "Guitar/Bass — modern tones, groove work"
-          },
-          {
-            alt: "Keyboard and recording setup",
-            img: "/gallery/studio-2.png",
-            caption: "Piano/Keys — pop/rock harmony, accompaniment"
-          },
-          {
-            alt: "Vocal mic and booth",
-            img: "/gallery/studio-3.jpg",
-            caption: "Vocals — breathing, pitch, presence"
-          }
-        ],
-        format: [
-          {
-            title: "In studio",
-            text: "Pro gear, high-quality monitoring, optional recordings to track your progress."
-          },
-          {
-            title: "At home",
-            text: "Maximum comfort. Same method, materials, and follow-up."
-          },
-          {
-            title: "Online",
-            text: "Optimized setup (camera + audio). Screen sharing, files, and exercises in real time."
-          }
-        ]
-      }
+
     },
     contactPage: {
       hero: {
@@ -482,6 +306,14 @@ export const translations: Record<Language, Translations> = {
         muteMessage: "De video start zonder geluid. Zet het geluid aan als je dat wilt.",
         overTitle: "Tentoonstelling",
         title: "« Objectief Maan »"
+      },
+      news: {
+        kicker: "Prochaine exposition",
+        title: "Sous les lunes de Bruxelles",
+        subtitle: "Une série d’œuvres autour des astres et constellations.",
+        meta: "Bruxelles — 12 > 28 avril 2025",
+        description: "Texte de présentation de l’expo…",
+        ctaLabel: "En savoir plus"
       }
     },
     gallery: {
@@ -491,107 +323,7 @@ export const translations: Record<Language, Translations> = {
       soldout: "UITVERKOCHT"
     },
     aboutPage: {
-      kicker: "Over, Arthur Boutellis",
-      title: {
-        t1: "Een ",
-        t2: "gepassioneerde ",
-        t3: "& veeleisende docent, gericht op ",
-        t4: "resultaat"
-      },
-      points: {
-        p1: "Persoonlijke programma's (beginner tot gevorderd)",
-        p2: "Audio/video materiaal & PDF-fiches",
-        p3: "Voorbereiding voor concerten, audities en opnames"
-      },
-      lead: "10+ jaar podium- en studio-ervaring, muzikant in verschillende bands waaronder DJYN. Een moderne en concrete aanpak met meetbare doelen om elke week vooruit te gaan - in de studio, thuis of online.",
-      bio: {
-        intro: "Opgeleid op het podium en in academies, ik begeleid leerlingen van alle leeftijden. Mijn aanpak: vertrekken vanuit jouw muziek, doelen structureren en technische automatismen bouwen die creativiteit vrijmaken.",
-        title: "Achtergrond & filosofie",
-        cards: [
-          {
-            title: "Van podium naar klaslokaal",
-            text: "Live-ervaring (bands, voorprogramma's, studio). Die praktijk voedt een hands-on pedagogie: klank, presence, omgaan met podiumvrees.",
-          },
-          {
-            title: "Progressieve & meetbare methode",
-            text: "Roadmap per trimester: doelliedjes, technieken, mini-projecten. Elke les eindigt met duidelijke actiepunten en een support (PDF/video).",
-          },
-          {
-            title: "Stijlen & veelzijdigheid",
-            text: "Rock/metal, pop, funk, hedendaagse muziek. Harmonie, ritme, gehoor: theorie en praktijk zijn meteen verbonden.",
-          },
-        ],
-        values: {
-          strong: {
-            s1: "Welwillendheid ",
-            s2: "Duidelijkheid ",
-            s3: "Doeltreffendheid ",
-          },
-          text: {
-            t1: "zonder toegevingen",
-            t2: "van doelen",
-            t3: "& motivatie",
-          }
-        }
-      },
-      certifications: {
-        title: "Diploma's & certificeringen",
-        items: [
-          { title: "Pedagogisch certificaat", org: "Conservatorium XYZ", year: "2018" },
-          { title: "Opleiding muziekproductie & opname", org: "Studio ABC", year: "2019" },
-          { title: "EHBO & stemzorg", org: "Training Gezondheid Artiesten", year: "2021" },
-        ]
-      },
-      contact: {
-        title: "Laten we je doelen bespreken",
-        sub: "Beschrijf je niveau en wat je wil spelen. Ik stel vanaf de eerste les een eenvoudig plan voor.",
-        cta: "Boek een proefles"
-      },
-      pedagogy: {
-        title: "Pedagogie & methode",
-        items: [
-          { title: "Persoonlijk plan", desc: "Doelen per trimester, doelliedjes, kerntechnieken." },
-          { title: "Duidelijk materiaal", desc: "PDF's, backing tracks, recap-videos - alles op een plek." },
-          { title: "Effectieve routines", desc: "Gestructureerde oefening (20-30 min/dag)." },
-          { title: "Directe praktijk", desc: "Mini-concert, opname, maandelijkse uitdaging." },
-          { title: "Precieze feedback", desc: "Eenvoudige criteria: ritme, toonhoogte, klank, intentie." },
-          { title: "Opvolging", desc: "Maandelijkse review + tips voor vooruitgang." },
-        ]
-      },
-      studio: {
-        title: "Studio & lesformats",
-        gallery: [
-          {
-            alt: "Gitaar- en versterkerhoek van de studio",
-            img: "/gallery/studio-1.jpg",
-            caption: "Gitaar/Bas - moderne sounds, groovewerk"
-          },
-          {
-            alt: "Toetsenbord en opnameopstelling",
-            img: "/gallery/studio-2.png",
-            caption: "Piano/Keys - pop/rock harmonie, begeleiding"
-          },
-          {
-            alt: "Zangmicrofoon en cabine",
-            img: "/gallery/studio-3.jpg",
-            caption: "Zang - ademhaling, zuiverheid, presence"
-          }
-        ],
-        format: [
-          {
-            title: "In de studio",
-            text: "Pro gear, kwaliteitsmonitoring, optionele opnames om je vooruitgang te volgen."
-          },
-          {
-            title: "Thuis",
-            text: "Maximaal comfort. Dezelfde methode, materiaal en opvolging."
-          },
-          {
-            title: "Online",
-            text: "Geoptimaliseerde setup (camera + audio). Schermdeling, bestanden en oefeningen in real time."
-          }
-        ]
-      }
+      
     },
     contactPage: {
       hero: {
