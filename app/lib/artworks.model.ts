@@ -1,9 +1,9 @@
-import { Artwork } from "../galerie/page";
 import { prisma } from "./prisma";
+import { Artwork } from "../generated/prisma/client";
 
-export async function getArtworks() {
+export async function getArtworks(): Promise<Artwork[]> {
   return prisma.artwork.findMany({
-    orderBy: { order: "asc" },
+    orderBy: { id: "asc" },
   });
 }
 

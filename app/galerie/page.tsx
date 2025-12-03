@@ -1,14 +1,9 @@
 import ArtworkGrid from "../components/gallery/artworkGrid/artworkGrid";
-import { artworks } from "../lib/artworks";
+import { getArtworks } from "../lib/artworks.model";
 
-export type Artwork = {
-    id: string;
-    title: string;
-    description?: string;
-    imageUrl: string;
-};
+export default async function GaleriePage() {
+    const artworks = await getArtworks();
 
-export default function GaleriePage() {
     return (
         <section>
             <ArtworkGrid artworks={artworks} />

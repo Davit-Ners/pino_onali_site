@@ -1,8 +1,8 @@
 'use client';
-import { Artwork } from "@/app/galerie/page";
 import styles from "./artworkGrid.module.css";
 import ArtworkCard from "../artworkCard/artworkCard";
 import { useTranslations } from "../../languageProvider/languageProvider";
+import { Artwork } from "@/app/generated/prisma/client";
 
 type Props = {
     artworks: Artwork[];
