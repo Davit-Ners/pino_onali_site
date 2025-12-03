@@ -4,14 +4,13 @@ import { useState } from "react";
 import styles from "./adminPanel.module.css";
 import ArtworkForm from "../artworkForm/artworkForm";
 import ArtworkTable from "../artworkTable/artworkTable";
-import { artworks } from "@/app/lib/artworks";
-import { Artwork } from "@/app/galerie/page";
 import ConfirmDialog from "../confirmDialog/confirmDialog";
 import Toast from "../toast/toast";
 import { useRouter } from "next/navigation";
 import LogoutDialog from "../logoutDialog/logoutDialog";
+import { Artwork } from "@/app/generated/prisma/client";
 
-export default function AdminPanel() {
+export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
     const [realArtworks, setArtworks] = useState<Artwork[]>(artworks);
     const [editingArtwork, setEditingArtwork] = useState<Artwork | null>(null);
     const [pendingDelete, setPendingDelete] = useState<Artwork | null>(null);
@@ -33,11 +32,11 @@ export default function AdminPanel() {
     }
 
     function handleCreate(artwork: Omit<Artwork, "id" | "createdAt">) {
-        const newArtwork: Artwork = {
-            ...artwork,
-            id: crypto.randomUUID(),
-        };
-        setArtworks((prev) => [newArtwork, ...prev]);
+        // const newArtwork: Artwork = {
+        //     ...artwork,
+        //     id: crypto.randomUUID(),
+        // };
+        // setArtworks((prev) => [newArtwork, ...prev]);
         showToast("success", "Œuvre ajoutée avec succès !");
     }
 
