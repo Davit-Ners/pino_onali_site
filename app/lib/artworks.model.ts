@@ -7,28 +7,36 @@ export async function getArtworks(): Promise<Artwork[]> {
   });
 }
 
-export async function createArtwork(data: {
+type CreateArtworkInput = {
   title: string;
-  sizeDescription?: string;
+  sizeDescription?: string | null;
   imageUrl: string;
   sold?: boolean;
-}) {
-  const now = new Date();
-  const dataWithTimestamp = {
-    ...data,
-    updatedAt: now,
-  };
+  order?: number | null;
+  id?: unknown;
+};
 
-  return prisma.artwork.create({ data: dataWithTimestamp });
+export async function createArtwork(data: CreateArtworkInput) {
+  const { title, sizeDescription, imageUrl, sold, order } = data;
+
+  return prisma.artwork.create({
+    data: {
+      title,
+      imageUrl,
+      sizeDescription: sizeDescription ?? null,
+      sold: sold ?? false,
+      order: order ?? 0,
+    },
+  });
 }
 
-export async function updateArtwork(id: string, data: Partial<Artwork>) {
+export async function updateArtwork(id: number, data: Partial<Artwork>) {
   return prisma.artwork.update({
     where: { id },
     data,
   });
 }
 
-export async function deleteArtwork(id: string) {
+export async function deleteArtwork(id: number) {
   return prisma.artwork.delete({ where: { id } });
 }

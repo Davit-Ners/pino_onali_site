@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Artwork {
-  id              String   @id @default(cuid())
+  id              Int      @id @default(autoincrement())
   title           String
   sizeDescription String?
   imageUrl        String
