@@ -6,17 +6,17 @@ import ArtworkForm from "../artworkForm/artworkForm";
 import ArtworkTable from "../artworkTable/artworkTable";
 import ConfirmDialog from "../confirmDialog/confirmDialog";
 import Toast from "../toast/toast";
-import { useRouter } from "next/navigation";
 import LogoutDialog from "../logoutDialog/logoutDialog";
 import { Artwork } from "@/app/generated/prisma/client";
 
-export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
+type ArtworkPayload = Omit<Artwork, "id" | "createdAt" | "updatedAt">;
+
+export default function AdminPanel({ artworks }: { artworks: Artwork[] }) {
     const [realArtworks, setArtworks] = useState<Artwork[]>(artworks);
     const [editingArtwork, setEditingArtwork] = useState<Artwork | null>(null);
     const [pendingDelete, setPendingDelete] = useState<Artwork | null>(null);
     const [open, setOpen] = useState(false);
-    const router = useRouter();
-    
+
     const [toast, setToast] = useState<{
         id: number;
         message: string;
@@ -31,19 +31,42 @@ export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
         });
     }
 
-    function handleCreate(artwork: Omit<Artwork, "id" | "createdAt">) {
-        // const newArtwork: Artwork = {
-        //     ...artwork,
-        //     id: crypto.randomUUID(),
-        // };
-        // setArtworks((prev) => [newArtwork, ...prev]);
-        showToast("success", "Œuvre ajoutée avec succès !");
+    async function handleCreate(artwork: ArtworkPayload) {
+        try {
+            const res = await fetch("/api/gallery", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(artwork),
+            });
+
+            if (!res.ok) {
+                throw new Error("Create failed");
+            }
+
+            const created: Artwork = await res.json();
+            setArtworks((prev) => [...prev, created]);
+            showToast("success", "Oeuvre ajoutee avec succes !");
+        } catch (err) {
+            console.error("CREATE ERROR:", err);
+            showToast("error", "La creation a echoue. Reessayez.");
+        }
     }
 
-    function handleUpdate(updated: Artwork) {
-        setArtworks((prev) =>
-            prev.map((a) => (a.id === updated.id ? updated : a))
+    async function handleUpdate(updated: Artwork) {
+        const res = await fetch(`/api/gallery/${updated.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updated)
+        });
+
+        if (!res.ok) return showToast("error", "Erreur lors de la modification");
+
+        const newData = await res.json();
+
+        setArtworks(prev =>
+            prev.map(a => (a.id === newData.id ? newData : a))
         );
+
         setEditingArtwork(null);
         showToast("info", "Modifications enregistrées !");
     }
@@ -59,23 +82,21 @@ export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
             method: "DELETE",
         });
 
-        setArtworks(prev =>
-            prev.filter(a => a.id !== pendingDelete.id)
-        );
+        setArtworks((prev) => prev.filter((a) => a.id !== pendingDelete.id));
 
         setPendingDelete(null);
-        showToast("error", "Œuvre supprimée !");
+        showToast("error", "Oeuvre supprimee !");
     }
 
     function cancelDelete() {
         setPendingDelete(null);
     }
-    
+
     async function handleLogout() {
         try {
-            await fetch("/api/admin/logout", { method: "POST" }); // à implémenter si pas encore fait
+            await fetch("/api/admin/logout", { method: "POST" });
         } catch (e) {
-        // même si ça fail côté API, on peut quand même rediriger
+            // even if logout API fails, still redirect away
         }
         window.location.href = "/";
     }
@@ -86,13 +107,13 @@ export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
             <div>
             <h1>Espace administrateur</h1>
             <p>
-                Gérez les œuvres visibles dans la galerie. Vous pouvez en ajouter,
+                Gerez les oeuvres visibles dans la galerie. Vous pouvez en ajouter,
                 les modifier ou les retirer facilement.
             </p>
             </div>
             <div className={styles.stats}>
             <div className={styles.statCard}>
-                <span className={styles.statLabel}>Œuvres publiées</span>
+                <span className={styles.statLabel}>Oeuvres publiees</span>
                 <span className={styles.statValue}>{realArtworks.length}</span>
             </div>
             
@@ -101,7 +122,7 @@ export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
                 className={styles.logoutButton}
                 onClick={() => setOpen(true)}
             >
-                Se déconnecter
+                Se deconnecter
             </button>
             </div>
         </header>
@@ -116,17 +137,17 @@ export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
 
             <ArtworkTable
             artworks={realArtworks}
-            onEdit={(artrealArtworkswork) => setEditingArtwork(artrealArtworkswork)}
+            onEdit={(artwork) => setEditingArtwork(artwork)}
             onDelete={askDelete}
             />
         </div>
         
         <ConfirmDialog
             open={!!pendingDelete}
-            title="Supprimer cette œuvre ?"
+            title="Supprimer cette oeuvre ?"
             message={
             pendingDelete
-                ? `Êtes-vous sûr de vouloir supprimer « ${pendingDelete.title} » de la galerie ?`
+                ? `Etes-vous sur de vouloir supprimer "${pendingDelete.title}" de la galerie ?`
                 : ""
             }
             confirmLabel="Supprimer"

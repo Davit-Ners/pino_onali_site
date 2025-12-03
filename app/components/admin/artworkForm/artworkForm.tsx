@@ -2,10 +2,10 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import styles from "./artworkForm.module.css";
-import { Artwork } from "@/app/galerie/page";
+import { Artwork } from "@/app/generated/prisma/client";
 
 type ArtworkFormProps = {
-    onCreate: (artwork: Omit<Artwork, "id" | "createdAt">) => void;
+    onCreate: (artwork: Omit<Artwork, "id" | "createdAt" | "updatedAt">) => void;
     onUpdate: (artwork: Artwork) => void;
     editingArtwork: Artwork | null;
     cancelEdit: () => void;
@@ -20,16 +20,14 @@ export default function ArtworkForm({
     const [title, setTitle] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [description, setDescription] = useState("");
-    // const [category, setCategory] = useState("");
-    // const [year, setYear] = useState<number | undefined>(undefined);
-    // const [width, setWidth] = useState<number | undefined>(undefined);
-    // const [height, setHeight] = useState<number | undefined>(undefined);
+    const [sold, setSold] = useState(false);
 
     useEffect(() => {
         if (editingArtwork) {
             setTitle(editingArtwork.title);
             setImageUrl(editingArtwork.imageUrl);
-            setDescription(editingArtwork.description || "");
+            setDescription(editingArtwork.sizeDescription || "");
+            setSold(Boolean(editingArtwork.sold));
         } else {
             resetForm();
         }
@@ -40,30 +38,34 @@ export default function ArtworkForm({
         setTitle("");
         setImageUrl("");
         setDescription("");
+        setSold(false);
     }
 
     function handleSubmit(e: FormEvent) {
         e.preventDefault();
 
         if (!title.trim() || !imageUrl.trim()) {
-        alert("Merci de renseigner au minimum le titre et l’image.");
-        return;
+            alert("Merci de renseigner au minimum le titre et l'image.");
+            return;
         }
 
         if (editingArtwork) {
-        onUpdate({
-            ...editingArtwork,
-            title: title.trim(),
-            imageUrl: imageUrl.trim(),
-            description: description.trim() || undefined,
-        });
+            onUpdate({
+                ...editingArtwork,
+                title: title.trim(),
+                imageUrl: imageUrl.trim(),
+                sizeDescription: description.trim() || null,
+                sold,
+            });
         } else {
-        onCreate({
-            title: title.trim(),
-            imageUrl: imageUrl.trim(),
-            description: description.trim() || undefined,
-        });
-        resetForm();
+            onCreate({
+                title: title.trim(),
+                imageUrl: imageUrl.trim(),
+                sizeDescription: description.trim() || null,
+                sold,
+                order: 0
+            });
+            resetForm();
         }
     }
 
@@ -72,11 +74,11 @@ export default function ArtworkForm({
     return (
         <section className={styles.card}>
         <header className={styles.header}>
-            <h2>{isEditing ? "Modifier une œuvre" : "Ajouter une œuvre"}</h2>
+            <h2>{isEditing ? "Modifier une oeuvre" : "Ajouter une oeuvre"}</h2>
             <p>
             {isEditing
-                ? "Mettez à jour les informations de cette œuvre."
-                : "Ajoutez une nouvelle œuvre à la galerie."}
+                ? "Mettez a jour les informations de cette oeuvre."
+                : "Ajoutez une nouvelle oeuvre a la galerie."}
             </p>
         </header>
 
@@ -106,7 +108,7 @@ export default function ArtworkForm({
                 placeholder="/artworks/mon-image.jpg"
             />
             <p className={styles.helper}>
-                Pour cette première version, indiquez simplement le chemin de l’image
+                Pour cette premiere version, indiquez simplement le chemin de l'image
                 (ex: <code>/artworks/mon-oeuvre.jpg</code>).
             </p>
             </div>
@@ -118,13 +120,25 @@ export default function ArtworkForm({
                 rows={3}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Technique, format, série..."
+                placeholder="Technique, format, serie..."
             />
+            </div>
+
+            <div className={styles.field}>
+            <label htmlFor="sold" className={styles.checkboxLabel}>
+                <input
+                id="sold"
+                type="checkbox"
+                checked={sold}
+                onChange={(e) => setSold(e.target.checked)}
+                />
+                Oeuvre vendue
+            </label>
             </div>
 
             <div className={styles.actions}>
             <button type="submit" className={styles.primaryButton}>
-                {isEditing ? "Enregistrer les modifications" : "Ajouter l’œuvre"}
+                {isEditing ? "Enregistrer les modifications" : "Ajouter l'oeuvre"}
             </button>
             {isEditing && (
                 <button
