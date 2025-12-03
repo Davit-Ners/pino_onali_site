@@ -4,17 +4,15 @@ import { Artwork } from "../generated/prisma/client";
 import { getArtworks } from "../lib/artworks.model";
 import ArtworkGridSkeleton from "../components/gallery/artworkGridSkeleton/artworkGridSkeleton";
 
-export default async function GaleriePage() {
-    const artworksPromise = await getArtworks();
-
+export default function GaleriePage() {
     return (
         <Suspense fallback={<ArtworkGridSkeleton />}>
-            <GalleryContent artworksPromise={artworksPromise}/>
+            <GalleryContent />
         </Suspense>
     );
 };
 
-async function GalleryContent({ artworksPromise }: { artworksPromise: Artwork[] }) {
-    const artworks = await artworksPromise;
-    return <ArtworkGrid artworks={artworks} />;
+async function GalleryContent() {
+    const artworksPromise = await getArtworks();
+    return <ArtworkGrid artworks={artworksPromise} />;
 };
