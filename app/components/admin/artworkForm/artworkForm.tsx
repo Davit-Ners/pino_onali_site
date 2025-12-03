@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import styles from "./artworkForm.module.css";
 import { Artwork } from "@/app/generated/prisma/client";
 
@@ -21,6 +21,8 @@ export default function ArtworkForm({
     const [imageUrl, setImageUrl] = useState("");
     const [description, setDescription] = useState("");
     const [sold, setSold] = useState(false);
+    const [uploading, setUploading] = useState(false);
+    const [uploadError, setUploadError] = useState<string | null>(null);
 
     useEffect(() => {
         if (editingArtwork) {
@@ -28,6 +30,7 @@ export default function ArtworkForm({
             setImageUrl(editingArtwork.imageUrl);
             setDescription(editingArtwork.sizeDescription || "");
             setSold(Boolean(editingArtwork.sold));
+            setUploadError(null);
         } else {
             resetForm();
         }
@@ -39,6 +42,37 @@ export default function ArtworkForm({
         setImageUrl("");
         setDescription("");
         setSold(false);
+        setUploadError(null);
+    }
+    
+    async function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        setUploading(true);
+        setUploadError(null);
+
+        try {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const res = await fetch("/api/upload", {
+            method: "POST",
+            body: formData,
+        });
+
+        if (!res.ok) {
+            throw new Error("Upload failed");
+        }
+
+        const data = await res.json();
+        setImageUrl(data.url);
+        } catch (err) {
+            console.error("UPLOAD ERROR:", err);
+            setUploadError("Échec de l’upload de l’image. Réessayez.");
+        } finally {
+            setUploading(false);
+        }
     }
 
     function handleSubmit(e: FormEvent) {
@@ -98,19 +132,40 @@ export default function ArtworkForm({
             </div>
 
             <div className={styles.field}>
-            <label htmlFor="imageUrl">Image (URL)</label>
-            <input
-                id="imageUrl"
-                type="text"
-                required
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-                placeholder="/artworks/mon-image.jpg"
-            />
-            <p className={styles.helper}>
-                Pour cette premiere version, indiquez simplement le chemin de l'image
-                (ex: <code>/artworks/mon-oeuvre.jpg</code>).
-            </p>
+                <label htmlFor="imageUrl">Image</label>
+                <input
+                    id="imageUrl"
+                    type="text"
+                    required
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                    placeholder="https://res.cloudinary.com/..."
+                />
+                <div className={styles.uploadRow}>
+                    <label className={styles.uploadButton}>
+                    <span>{uploading ? "Upload en cours..." : "Choisir un fichier"}</span>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        disabled={uploading}
+                    />
+                    </label>
+                    {uploadError && (
+                    <p className={styles.uploadError}>{uploadError}</p>
+                    )}
+                </div>
+                <p className={styles.helper}>
+                    Vous pouvez coller une URL d&apos;image directement ou importer un
+                    fichier depuis votre ordinateur.
+                </p>
+
+                {imageUrl && (
+                    <div className={styles.preview}>
+                    {/* preview simple */}
+                    <img src={imageUrl} alt="Prévisualisation" />
+                    </div>
+                )}
             </div>
 
             <div className={styles.field}>

@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     const buffer = Buffer.from(bytes);
 
     const folder =
-      process.env.CLOUDINARY_FOLDER || "pino-artworks";
+      process.env.CLOUDINARY_FOLDER || "pino";
 
     const result = await new Promise<any>((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
