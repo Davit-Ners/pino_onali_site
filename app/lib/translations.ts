@@ -223,10 +223,12 @@ export const translations: Record<Language, Translations> = {
       },
       news: {
         kicker: "Prochaine exposition",
-        title: "Sous les lunes de Bruxelles",
+        title: "Milky Moon",
         subtitle: "Une série d’œuvres autour des astres et constellations.",
         meta: "Bruxelles — 12 > 28 avril 2025",
-        description: "Texte de présentation de l’expo…",
+          description: `Revoilà ma Lune tant aimée, en déclinaison ludique, plus petite, elle guide la voie lactée et décide de tout voir et surtout, de tout entendre grâce à ses oreilles noirs recouvertes de résine pour la rendre plus réceptive.. cela vous rappellera certainement quelque chose qui pourtant n’a jamais prononcé un seul mot,mais que tous ont toujours compris.
+          Elle se décline cette fois en nuances plus fluorescente, et parfois reprend le style de son aïeul.
+          Bonne route sur la Milky Moon.🌔`,
         ctaLabel: "En savoir plus"
       }
     },

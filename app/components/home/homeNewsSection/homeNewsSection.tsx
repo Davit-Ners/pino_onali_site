@@ -8,12 +8,12 @@ export default function HomeNewsSection() {
     const t = useTranslations();
 
     const highlight = {
-        image: "/events/expo-lune.jpg", // à mettre dans public/events/...
+        image: "/events/expo-lune.jpg",
         title: t.home.news.title,
         subtitle: t.home.news.subtitle,
-        meta: t.home.news.meta, // ex: "Bruxelles — 12 > 28 avril 2025"
+        meta: t.home.news.meta,
         description: t.home.news.description,
-        ctaLabel: t.home.news.ctaLabel, // ex: "En savoir plus"
+        ctaLabel: t.home.news.ctaLabel,
     };
 
     return (
