@@ -13,7 +13,13 @@ export async function createArtwork(data: {
   imageUrl: string;
   sold?: boolean;
 }) {
-  return prisma.artwork.create({ data });
+  const now = new Date();
+  const dataWithTimestamp = {
+    ...data,
+    updatedAt: now,
+  };
+
+  return prisma.artwork.create({ data: dataWithTimestamp });
 }
 
 export async function updateArtwork(id: string, data: Partial<Artwork>) {

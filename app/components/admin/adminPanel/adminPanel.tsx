@@ -52,12 +52,17 @@ export default function AdminPanel({ artworks } : { artworks: Artwork[] }) {
         setPendingDelete(artwork);
     }
 
-    function confirmDelete() {
+    async function confirmDelete() {
         if (!pendingDelete) return;
-        setArtworks((prev) => prev.filter((a) => a.id !== pendingDelete.id));
-        if (editingArtwork?.id === pendingDelete.id) {
-        setEditingArtwork(null);
-        }
+
+        await fetch(`/api/gallery/${pendingDelete.id}`, {
+            method: "DELETE",
+        });
+
+        setArtworks(prev =>
+            prev.filter(a => a.id !== pendingDelete.id)
+        );
+
         setPendingDelete(null);
         showToast("error", "Œuvre supprimée !");
     }
