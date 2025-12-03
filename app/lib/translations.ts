@@ -62,6 +62,51 @@ interface Translations {
     soldout: string;
   };
   aboutPage: {
+    hero: {
+      rail: string;
+      title: string;
+      content: string;
+      image: {
+        title: string;
+        subtitle: string;
+      }
+    },
+    columns: {
+      left: {
+        title: string;
+        content1: string;
+        content2: string;
+      },
+      right: {
+        title: string;
+
+        locationTitle: string;
+        locationContent: string;
+
+        themeTitle: string;
+        themeContent: string;
+
+        technicTitle: string;
+        technicContent: string;
+
+        formatTitle: string;
+        formatContent: string;
+      }
+    },
+    panel: {
+      panel1: {
+        title: string;
+        content: string;
+      },
+      panel2: {
+        title: string;
+        content: string;
+      },
+      panel3: {
+        title: string;
+        content: string;
+      }
+    }
   };
   contactPage: {
     hero: {
@@ -151,7 +196,58 @@ export const translations: Record<Language, Translations> = {
         soldout: "SOLD OUT"
     },
     aboutPage: {
-
+      hero: {
+        title: 'Pino Onali',
+        rail: 'À PROPOS',
+        content: `Entre astres, pigments et éclats de lumière, Pino Onali compose
+                des toiles qui oscillent entre contemplation et explosion. Sa
+                peinture ne cherche pas à raconter une histoire linéaire : elle
+                ouvre des portes, crée des atmosphères, laisse le regard voyager.`,
+        image: {
+          title: "Artiste peintre",
+          subtitle: "Basé à Bruxelles • Inspirations lunaires & cosmiques"
+        }
+      },
+      columns: {
+        left: {
+          title: "Biographie",
+          content1: `Pino décide de se mettre à la peinture par obligation de trouver exactement le tableau idéal pour son intérieur en 2010, force est de croire que rien n’allait avec les murs « chocolat » qui s’étendaient sur tout l’appartement.
+          De fils en aiguille, il s’est découvert un talent qu’il n’a plus cessé de deréinventé !`,
+          content2: `D’expos en expos, de bars d’hôtels en bars d’hôtels, de galeries en galeries, il n’a cessé de produire de nouvelles tonalités due au mélange infini de couleurs, il avoue d’ailleurs que même si légèrement daltonien, voir complètement, cet handicap est une force énorme qui le pousse à recrée des tonalités exceptionnelles que beaucoup de clients se sont déjà approprié au fils des ans.
+          Sa devise est la couleur et la couleur, son domaine de prédilection.`
+        },
+        right: {
+          title: "Repères",
+          locationTitle: "Basé à",
+          locationContent: "Bruxelles, Belgique",
+          themeTitle: "Thèmes récurrents",
+          themeContent: "Lunes, constellations, matières cosmiques",
+          technicTitle: "Techniques",
+          technicContent: "Acrylique, polyuréthane, huile, techniques mixtes",
+          formatTitle: "Formats",
+          formatContent: "Toiles de grand format, séries modulaires"
+        }
+      },
+      panel: {
+        panel1: {
+          title: "Démarche artistique",
+          content: `La peinture de Pino ne cherche pas à dominer l’espace, mais à le
+                faire respirer. Il construit ses toiles par couches successives :
+                transparences, recouvrements, gestes spontanés, accidents assumés.`
+        },
+        panel2: {
+          title: "Univers visuel",
+          content: `Lunes, halos, éclats et fragments de lumière : ses toiles évoquent
+                des cartes du ciel imaginaires, des paysages intérieurs traversés
+                par des forces invisibles.`
+        },
+        panel3: {
+          title: "Techniques & matières",
+          content: `Acrylique, huile, encres, parfois sable ou pigments bruts… Pino
+                explore comment chaque matière réagit, se mélange ou résiste à la
+                surface de la toile.`
+        }
+      }
     },
     contactPage: {
       hero: {
@@ -239,7 +335,54 @@ export const translations: Record<Language, Translations> = {
       soldout: "SOLD OUT"
     },
     aboutPage: {
-
+        hero: {
+        title: 'Pino Onali',
+        rail: 'ABOUT',
+        content: `Between stars, pigments, and bursts of light, Pino Onali composes
+                  canvases that oscillate between contemplation and explosion. His
+                  painting doesn't seek to tell a linear story: it opens doors, creates atmospheres, allows the gaze to wander.`,
+        image: {
+          title: "Painter Artist",
+          subtitle: "Based in Brussels • Lunar & cosmic inspirations"
+        }
+      },
+      columns: {
+        left: {
+          title: "Biography",
+          content1: `Pino decided to take up painting out of an obligation to find exactly the ideal painting for his interior in 2010; it must be said that nothing matched the \"chocolate\" walls that extended throughout the apartment. Little by little, he discovered a talent that he has continued to reinvent ever since!`,
+          content2: `From exhibitions to exhibitions, hotel bars to hotel bars, galleries to galleries, he has continued to produce new tonalitites due to the infinite mixing of colors. He admits, moreover, that even if slightly colorblind, or completely so, this handicap is an enormous strength that pushes him to recreate exceptional tonalitites that many clients have already appropriated over the years. His motto is color, and color is his favorite field.`
+        },
+        right: {
+          title: "Benchmarks",
+          locationTitle: "Based in",
+          locationContent: "Brussels, Belgium",
+          themeTitle: "Recurring themes",
+          themeContent: "Moons, constellations, cosmic materials",
+          technicTitle: "Techniques",
+          technicContent: "Acrylic, polyurethane, oil, mixed media",
+          formatTitle: "Formats",
+          formatContent: "Large format canvases, modular series"
+        }
+      },
+      panel: {
+        panel1: {
+          title: "Artistic approach",
+          content: `Pino's painting doesn't seek to dominate the space, but to let it
+                  breathe. He builds his canvases with successive layers:
+                  transparencies, overlays, spontaneous gestures, assumed accidents.`
+        },
+        panel2: {
+          title: "Visual universe",
+          content: `Moons, halos, bursts and fragments of light: his canvases evoke
+                  imaginary sky maps, interior landscapes traversed
+                  by invisible forces.`
+        },
+        panel3: {
+          title: "Techniques & materials",
+          content: `Acrylic, oil, inks, sometimes sand or raw pigments... Pino
+                  explores how each material reacts, mixes, or resists on the surface of the canvas.`
+        }
+      }
     },
     contactPage: {
       hero: {
@@ -325,7 +468,54 @@ export const translations: Record<Language, Translations> = {
       soldout: "UITVERKOCHT"
     },
     aboutPage: {
-      
+      hero: {
+        title: 'Pino Onali',
+        rail: 'OVER ONS',
+        content: `Tussen sterren, pigmenten en lichtflitsen door, componeert Pino Onali
+                  doeken die schommelen tussen contemplatie en explosie. Zijn
+                  schilderwerk probeert geen lineair verhaal te vertellen: het opent deuren, creëert sferen, laat het oog dwalen.`,
+        image: {
+          title: "Kunstschilder",
+          subtitle: "Gebaseerd in Brussel • Lunaire & kosmische inspiraties"
+        }
+      },
+      columns: {
+        left: {
+          title: "Biografie",
+          content1: `Pino besloot te gaan schilderen uit de noodzaak om in 2010 precies het ideale schilderij voor zijn interieur te vinden; het mag duidelijk zijn dat niets paste bij de \"chocolade\" muren die door het hele appartement liepen. Beetje bij beetje ontdekte hij een talent dat hij sindsdien is blijven heruitvinden!`,
+          content2: `Van tentoonstellingen naar tentoonstellingen, van hotelbars naar hotelbars, van galeries naar galeries, is hij nieuwe tonaliteiten blijven produceren door de oneindige vermenging van kleuren. Hij geeft trouwens toe dat, zelfs al is hij licht kleurenblind, of volledig, deze handicap een enorme kracht is die hem ertoe aanzet uitzonderlijke tonaliteiten te hercreëren die veel klanten zich in de loop der jaren al hebben toegeëigend. Zijn motto is kleur, en kleur is zijn favoriete domein.`
+        },
+        right: {
+          title: "Referentiepunten",
+          locationTitle: "Gebaseerd in",
+          locationContent: "Brussel, België",
+          themeTitle: "Terugkerende thema's",
+          themeContent: "Maan, constellaties, kosmische materialen",
+          technicTitle: "Technieken",
+          technicContent: "Acryl, polyurethaan, olie, gemengde technieken",
+          formatTitle: "Formats",
+          formatContent: "Grootformaat doeken, modulaire series"
+        }
+      },
+      panel: {
+        panel1: {
+          title: "Artistieke benadering",
+          content: `Pino's schilderwerk probeert de ruimte niet te domineren, maar het
+                  te laten ademen. Hij bouwt zijn doeken op in opeenvolgende lagen:
+                  transparanties, overlappende delen, spontane gebaren, bewuste ongelukken.`
+        },
+        panel2: {
+          title: "Visueel universum",
+          content: `Maan, halo's, flitsen en fragmenten van licht: zijn doeken roepen
+                  denkbeeldige hemelkaarten op, innerlijke landschappen doorkruist
+                  door onzichtbare krachten.`
+        },
+        panel3: {
+          title: "Technieken & materialen",
+          content: `Acryl, olie, inkten, soms zand of ruwe pigmenten... Pino
+                  onderzoekt hoe elk materiaal reageert, mengt of weerstand biedt op het oppervlak van het doek.`
+        }
+      }
     },
     contactPage: {
       hero: {
