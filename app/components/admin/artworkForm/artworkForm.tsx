@@ -53,23 +53,23 @@ export default function ArtworkForm({
         setUploadError(null);
 
         try {
-        const formData = new FormData();
-        formData.append("file", file);
+            const formData = new FormData();
+            formData.append("file", file);
 
-        const res = await fetch("/api/upload", {
-            method: "POST",
-            body: formData,
-        });
+            const res = await fetch("/api/upload", {
+                method: "POST",
+                body: formData,
+            });
 
-        if (!res.ok) {
-            throw new Error("Upload failed");
-        }
+            if (!res.ok) {
+                throw new Error("Upload failed");
+            }
 
-        const data = await res.json();
-        setImageUrl(data.url);
+            const data = await res.json();
+            setImageUrl(data.url);
         } catch (err) {
             console.error("UPLOAD ERROR:", err);
-            setUploadError("Échec de l’upload de l’image. Réessayez.");
+            setUploadError("Echec de l'upload de l'image. Reessayez.");
         } finally {
             setUploading(false);
         }
@@ -162,8 +162,10 @@ export default function ArtworkForm({
 
                 {imageUrl && (
                     <div className={styles.preview}>
-                    {/* preview simple */}
-                    <img src={imageUrl} alt="Prévisualisation" />
+                    <div className={styles.previewFrame}>
+                        <img src={imageUrl} alt="Previsualisation" />
+                    </div>
+                    <p className={styles.previewCaption}>Prévisualisation</p>
                     </div>
                 )}
             </div>
