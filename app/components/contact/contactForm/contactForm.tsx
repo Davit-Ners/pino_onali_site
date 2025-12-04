@@ -27,21 +27,20 @@ export default function ContactForm() {
         setStatus("loading");
 
         try {
-        // TODO: brancher avec ton API /api/contact plus tard
-        // const res = await fetch("/api/contact", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify({ name, email, message }),
-        // });
-        // if (!res.ok) throw new Error("Erreur");
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, message, artwork }),
+            });
+            if (!res.ok) throw new Error("Erreur");
 
-        // simulation de succès
-        await new Promise((r) => setTimeout(r, 500));
+            // simulation de succès
+            await new Promise((r) => setTimeout(r, 500));
 
-        setStatus("success");
-        setName("");
-        setEmail("");
-        setMessage(artwork ? `Je suis intéressé(e) par l’œuvre : ${artwork}\n\n` : "");
+            setStatus("success");
+            setName("");
+            setEmail("");
+            setMessage(artwork ? `Je suis intéressé(e) par l’œuvre : ${artwork}\n\n` : "");
         } catch {
         setStatus("error");
         }
