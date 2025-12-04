@@ -182,10 +182,13 @@ export const translations: Record<Language, Translations> = {
       },
       news: {
         kicker: "Prochaine exposition",
-        title: "Sous les lunes de Bruxelles",
+        title: "Milky Moon",
         subtitle: "Une série d’œuvres autour des astres et constellations.",
-        meta: "Bruxelles — 12 > 28 avril 2025",
-        description: "Texte de présentation de l’expo…",
+        meta: "Bruxelles — 12 > 20 Janvier 2025",
+        description: `
+        Revoilà ma Lune tant aimée, en déclinaison ludique, plus petite, elle guide la voie lactée et décide de tout voir et surtout, de tout entendre grâce à ses oreilles noirs recouvertes de résine pour la rendre plus réceptive.. cela vous rappellera certainement quelque chose qui pourtant n’a jamais prononcé un seul mot,mais que tous ont toujours compris.
+        Elle se décline cette fois en nuances plus fluorescente, et parfois reprend le style de son aïeul.
+        Bonne route sur la Milky Moon.🌔`,
         ctaLabel: "En savoir plus"
       }
     },
@@ -318,14 +321,15 @@ export const translations: Record<Language, Translations> = {
         title: "« Objective Moon »"
       },
       news: {
-        kicker: "Prochaine exposition",
+        kicker: "Upcoming exhibition",
         title: "Milky Moon",
-        subtitle: "Une série d’œuvres autour des astres et constellations.",
-        meta: "Bruxelles — 12 > 28 avril 2025",
-          description: `Revoilà ma Lune tant aimée, en déclinaison ludique, plus petite, elle guide la voie lactée et décide de tout voir et surtout, de tout entendre grâce à ses oreilles noirs recouvertes de résine pour la rendre plus réceptive.. cela vous rappellera certainement quelque chose qui pourtant n’a jamais prononcé un seul mot,mais que tous ont toujours compris.
-          Elle se décline cette fois en nuances plus fluorescente, et parfois reprend le style de son aïeul.
-          Bonne route sur la Milky Moon.🌔`,
-        ctaLabel: "En savoir plus"
+        subtitle: "A series of works around stars and constellations.",
+        meta: "Brussels — January 12 > 20, 2025",
+        description: `
+          Here is my beloved Moon again, in a playful variation, smaller, it guides the Milky Way and decides to see everything and above all, hear everything thanks to its black ears covered with resin to make it more receptive.. this will certainly remind you of something that never uttered a single word, but which everyone always understood.
+          It is this time declined in more fluorescent shades, and sometimes resumes the style of its ancestor.
+          Have a good trip on the Milky Moon.🌔`,
+        ctaLabel: "Learn more"
       }
     },
     gallery: {
@@ -453,12 +457,15 @@ export const translations: Record<Language, Translations> = {
         title: "« Objectief Maan »"
       },
       news: {
-        kicker: "Prochaine exposition",
-        title: "Sous les lunes de Bruxelles",
-        subtitle: "Une série d’œuvres autour des astres et constellations.",
-        meta: "Bruxelles — 12 > 28 avril 2025",
-        description: "Texte de présentation de l’expo…",
-        ctaLabel: "En savoir plus"
+        kicker: "Aankomende tentoonstelling",
+        title: "Milky Moon",
+        subtitle: "Een serie werken rondom sterren en sterrenbeelden.",
+        meta: "Brussel — 12 > 20 Januari 2025",
+        description: `
+          Hier is mijn geliefde Maan weer, in een speelse variatie, kleiner, zij wijst de Melkweg en besluit alles te zien en vooral, alles te horen dankzij haar zwarte oren bedekt met hars om haar ontvankelijker te maken.. dit zal je zeker herinneren aan iets dat nooit een woord heeft gezegd, maar dat iedereen altijd heeft begrepen.
+          Dit keer is ze uitgevoerd in meer fluorescerende tinten, en soms neemt ze de stijl van haar voorouder over.
+          Goede reis op de Milky Moon.🌔`,
+        ctaLabel: "Meer informatie"
       }
     },
     gallery: {

@@ -32,8 +32,8 @@ export default function HomePage() {
       </section>
 
       {/* SECTION VIDÉO */}
-      <HomeNewsSection />
       <HomeVideoSection />
+      <HomeNewsSection />
     </>
   );
 };
