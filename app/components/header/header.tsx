@@ -3,9 +3,16 @@ import styles from "./header.module.css";
 import { cookies } from "next/headers";
 import LanguageToggle from "../languageToggle/languageToggle";
 import HeaderNav from "./headerNav";
+import { ADMIN_COOKIE, verifyAdminToken } from "@/app/lib/auth";
 
 export default async function Header() {
-    const isAdmin = (await cookies()).get("pino_admin")?.value === '1';
+    let isAdmin = false;
+    try {
+        const token = (await cookies()).get(ADMIN_COOKIE)?.value;
+        isAdmin = Boolean(await verifyAdminToken(token));
+    } catch {
+        isAdmin = false;
+    }
 
     return (
         <header className={styles.header}>

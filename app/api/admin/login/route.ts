@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ADMIN_COOKIE, issueAdminToken, verifyAdminToken } from "@/app/lib/auth";
 
 export async function POST(req: NextRequest) {
-    const body = await req.json().catch(() => null) as { password?: string } | null;
+    const body = (await req.json().catch(() => null)) as { password?: string } | null;
 
     const password = body?.password ?? "";
-    // const adminPassword = process.env.ADMIN_PASSWORD;
-    const adminPassword = '1234';
+    const adminPassword = process.env.ADMIN_PASSWORD?.trim();
 
     if (!adminPassword) {
-        console.error("ADMIN_PASSWORD non défini dans les variables d'environnement.");
+        console.error("ADMIN_PASSWORD non dÇ¸fini dans les variables d'environnement.");
         return NextResponse.json(
             { error: "Configuration serveur manquante." },
             { status: 500 }
@@ -22,21 +22,36 @@ export async function POST(req: NextRequest) {
         );
     }
 
-    const res = NextResponse.json({ success: true });
+    try {
+        const token = await issueAdminToken();
 
-    // Cookie de session admin
-    res.cookies.set("pino_admin", "1", {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-        path: "/",
-        maxAge: 60 * 60 * 4, // 4h
-    });
+        const res = NextResponse.json({ success: true });
 
-    return res;
+        res.cookies.set(ADMIN_COOKIE, token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            path: "/",
+            maxAge: 60 * 60 * 4, // 4h
+        });
+
+        return res;
+    } catch (err) {
+        console.error("ADMIN TOKEN ERROR:", err);
+        return NextResponse.json(
+            { error: "Configuration serveur manquante." },
+            { status: 500 }
+        );
+    }
 };
 
-export async function GET() {
-    // optionnel : savoir si déjà loggé
-    return NextResponse.json({ ok: true });
+export async function GET(req: NextRequest) {
+    try {
+        const token = req.cookies.get(ADMIN_COOKIE)?.value;
+        const valid = Boolean(await verifyAdminToken(token));
+        return NextResponse.json({ ok: valid });
+    } catch (err) {
+        console.error("ADMIN TOKEN ERROR:", err);
+        return NextResponse.json({ ok: false });
+    }
 };

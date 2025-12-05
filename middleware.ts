@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { ADMIN_COOKIE, verifyAdminToken } from "@/app/lib/auth";
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   const isAdminPage = pathname.startsWith("/admin");
@@ -19,11 +20,25 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  const adminCookie = req.cookies.get("pino_admin")?.value;
-  const isAuthenticated = adminCookie === "1";
+  const rawToken = req.cookies.get(ADMIN_COOKIE)?.value;
+  let isAuthenticated = false;
+  try {
+    isAuthenticated = Boolean(await verifyAdminToken(rawToken));
+  } catch (err) {
+    console.error("ADMIN AUTH ERROR:", err);
+    isAuthenticated = false;
+  }
 
   if (isProtectedApi && !isAuthenticated) {
-    return NextResponse.json({ error: "Non autorisÇ¸." }, { status: 401 });
+    const res = NextResponse.json({ error: "Non autorise." }, { status: 401 });
+    res.cookies.set(ADMIN_COOKIE, "", {
+      path: "/",
+      expires: new Date(0),
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+    });
+    return res;
   }
 
   if (isLoginPage) {
@@ -40,7 +55,15 @@ export function middleware(req: NextRequest) {
     const url = req.nextUrl.clone();
     url.pathname = "/admin/login";
     url.searchParams.set("from", pathname);
-    return NextResponse.redirect(url);
+    const res = NextResponse.redirect(url);
+    res.cookies.set(ADMIN_COOKIE, "", {
+      path: "/",
+      expires: new Date(0),
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+    });
+    return res;
   }
 
   return NextResponse.next();

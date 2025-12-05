@@ -1,9 +1,21 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { cloudinary } from "@/app/lib/cloudinary";
+import { ADMIN_COOKIE, verifyAdminToken } from "@/app/lib/auth";
 
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
+  try {
+    const token = (await cookies()).get(ADMIN_COOKIE)?.value;
+    if (!(await verifyAdminToken(token))) {
+      return NextResponse.json({ error: "Non autorise." }, { status: 401 });
+    }
+  } catch (err) {
+    console.error("ADMIN AUTH ERROR:", err);
+    return NextResponse.json({ error: "Configuration manquante." }, { status: 500 });
+  }
+
   try {
     const formData = await req.formData();
     const file = formData.get("file") as File | null;
