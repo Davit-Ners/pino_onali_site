@@ -13,7 +13,13 @@ export default function ContactForm() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [honeypot, setHoneypot] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    // S'assure que le honeypot est vide au montage (et limite l'autofill)
+    useEffect(() => {
+        setHoneypot("");
+    }, []);
 
     useEffect(() => {
         if (artwork && !message) {
@@ -30,7 +36,7 @@ export default function ContactForm() {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message, artwork }),
+                body: JSON.stringify({ name, email, message, artwork, honeypot }),
             });
             if (!res.ok) throw new Error("Erreur");
 
@@ -51,7 +57,23 @@ export default function ContactForm() {
         <h2>{t.contactPage.form.title}</h2>
         <p className={styles.subtitle}>{t.contactPage.form.subtitle}</p>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit} autoComplete="off">
+            {/* Champ honeypot anti-bot */}
+            <div
+            style={{ position: "absolute", left: "-10000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+            aria-hidden="true"
+            >
+            <label htmlFor="website">Votre site web</label>
+            <input
+                id="website"
+                name="hp_field"
+                type="text"
+                tabIndex={-1}
+                autoComplete="new-password"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+            />
+            </div>
             <div className={styles.field}>
             <label htmlFor="name">{t.contactPage.form.nameLabel}</label>
             <input

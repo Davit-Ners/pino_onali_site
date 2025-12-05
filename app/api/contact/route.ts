@@ -9,12 +9,19 @@ export type EmailContent = {
     email: string;
     message: string;
     artwork?: string;
+    honeypot?: string;
 };
 
 export async function POST(req: Request) {
     try {
         const body: EmailContent = await req.json();
-        const { name, email, message, artwork } = body;
+        const { name, email, message, artwork, honeypot } = body;
+
+        // Honeypot anti-bot : on fait semblant de rÇ¸ussir mais on ignore
+        if (honeypot && honeypot.trim().length > 0) {
+            console.log('ajhfaeufueafheaofae', honeypot, message, email, artwork);
+            return Response.json({ success: true });
+        }
 
         if (!email || !message) {
             return Response.json(
