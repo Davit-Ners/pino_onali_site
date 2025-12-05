@@ -7,16 +7,17 @@ import { Artwork } from "@/app/generated/prisma/client";
 
 type Props = {
     artwork: Artwork;
+    onSelect: (artwork: Artwork) => void;
 };
 
-export default function ArtworkCard({ artwork }: Props) {
+export default function ArtworkCard({ artwork, onSelect }: Props) {
     const interestHref = `/contact?artwork=${encodeURIComponent(
         artwork.title
     )}`;
     const t = useTranslations();
 
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={() => onSelect(artwork)}>
         <div className={styles.imageWrapper}>
             <Image
             src={artwork.imageUrl}
@@ -34,11 +35,11 @@ export default function ArtworkCard({ artwork }: Props) {
 
         <div className={styles.hoverOverlay}>
             {artwork.sold ? (
-                <button className={styles.btn}>
+                <button className={styles.btn} onClick={(e) => e.stopPropagation()}>
                     {artwork.sold ? t.gallery.soldout : t.gallery.interess}
                 </button>
             ) : (
-                <Link href={interestHref} className={styles.btn}>
+                <Link href={interestHref} className={styles.btn} onClick={(e) => e.stopPropagation()}>
                     {artwork.sold ? t.gallery.soldout : t.gallery.interess}
                 </Link>
             )}
