@@ -8,7 +8,7 @@ export default function HomeNewsSection() {
     const t = useTranslations();
 
     const highlight = {
-        image: "/events/invitation-1.jpg",
+        image: "/events/invitation.jpg",
         title: t.home.news.title,
         subtitle: t.home.news.subtitle,
         meta: t.home.news.meta,

@@ -70,7 +70,7 @@ body {
 
 /* Backgrounds par page */
 body.bg-home {
-  background-image: url("/bg-3-test.jpg");
+  background-image: url("/bg-home.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -78,7 +78,7 @@ body.bg-home {
 }
 
 body.bg-galerie {
-  background-image: url("/bg2.jpg");
+  background-image: url("/bg-gallery.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -86,7 +86,7 @@ body.bg-galerie {
 }
 
 body.bg-about {
-  background-image: url("/bg5.jpg");
+  background-image: url("/bg-about.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,7 +94,7 @@ body.bg-about {
 }
 
 body.bg-contact {
-  background-image: url("/bg3.jpg");
+  background-image: url("/bg-contact.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -102,7 +102,7 @@ body.bg-contact {
 }
 
 body.bg-admin {
-  background-image: url("/bg4.jpg");
+  background-image: url("/bg-admin.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
