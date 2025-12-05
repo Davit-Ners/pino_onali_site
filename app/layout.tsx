@@ -2,13 +2,36 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import PageBackground from "./components/home/pageBackground/pageBackground";
 import BodyWrapper from "./bodyWrapper";
 import LanguageProvider from "./components/languageProvider/languageProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pinoonali.com"),
   title: "Pino Onali",
-  description: "Site vitrine pour l'artiste peintre Pino Onali.",
+  description: "Découvrez les œuvres lunaires et cosmiques de Pino Onali, artiste-peintre basé à Bruxelles.",
+  keywords: [
+    "artiste peintre Bruxelles",
+    "peintre Avenue Louise",
+    "œuvres d'art Bruxelles",
+    "art contemporain Belgique",
+    "Pino Onali"
+  ],
+  openGraph: {
+    title: "Pino Onali – Artiste peintre",
+    description: "Œuvres inspirées des astres, constellations et textures lunaires.",
+    url: "https://pinoonali.com",
+    siteName: "Pino Onali",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Œuvre de Pino Onali"
+      }
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -20,7 +43,6 @@ export default function RootLayout({
     <html lang="fr">
       <LanguageProvider>
       <BodyWrapper>
-        {/* <PageBackground src="/bg1.jpg" /> */}
         <Header />
         <main
           style={{

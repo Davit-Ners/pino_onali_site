@@ -8,7 +8,7 @@ export default function AboutHero() {
             {/* Rail vertical à gauche */}
             <div className={styles.rail}>
             <span className={styles.railLine} />
-            <span className={styles.railLabel}>À PROPOS</span>
+            <h1 className={styles.railLabel}>À PROPOS</h1>
             </div>
 
             {/* Bloc texte central */}
