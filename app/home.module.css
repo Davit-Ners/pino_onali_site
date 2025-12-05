@@ -202,6 +202,27 @@
   }
 }
 
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.videoWrapper iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: all;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
