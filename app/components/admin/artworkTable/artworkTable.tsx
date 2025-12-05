@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./artworkTable.module.css";
-import { Artwork } from "@/app/galerie/page";
+import { Artwork } from "@/app/generated/prisma/client";
 
 type Props = {
     artworks: Artwork[];
@@ -42,8 +42,8 @@ export default function ArtworkTable({ artworks, onEdit, onDelete }: Props) {
 
                 <div className={styles.info}>
                     <h3>{artwork.title}</h3>
-                    {artwork.description && (
-                    <p className={styles.description}>{artwork.description}</p>
+                    {artwork.sizeDescription && (
+                    <p className={styles.description}>{artwork.sizeDescription}</p>
                     )}
                 </div>
 
