@@ -10,7 +10,7 @@ export default function AboutPage() {
         <AboutHero />
         <AboutColumns />
         <AboutPanels />
-        <AboutQuote text="« La peinture n’est pas ce que l’on voit, mais ce que l’on ressent. »" />
+        <AboutQuote />
         </div>
     );
 };

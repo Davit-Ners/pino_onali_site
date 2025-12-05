@@ -106,7 +106,8 @@ interface Translations {
         title: string;
         content: string;
       }
-    }
+    },
+    quote: string;
   };
   contactPage: {
     hero: {
@@ -137,8 +138,9 @@ interface Translations {
     }
   };
   footer: {
-    location: string;
-    copy: string;
+    c1: string;
+    c2: string;
+    c3: string;
   };
 };
 
@@ -250,7 +252,8 @@ export const translations: Record<Language, Translations> = {
                 explore comment chaque matière réagit, se mélange ou résiste à la
                 surface de la toile.`
         }
-      }
+      },
+      quote: "« La peinture n’est pas ce que l’on voit, mais ce que l’on ressent. »"
     },
     contactPage: {
       hero: {
@@ -281,8 +284,9 @@ export const translations: Record<Language, Translations> = {
       }
     },
     footer: {
-      location: "Bruxelles & en ligne",
-      copy: "Tous droits réservés."
+      c1: "© 2025 Pino Onali. Tous droits réservés.",
+      c2: "Toutes les œuvres et images présentes sur ce site sont la propriété de l’artiste.",
+      c3: "Site conçu et développé par Davit Nersesyan."
     },
   },
   en: {
@@ -386,7 +390,8 @@ export const translations: Record<Language, Translations> = {
           content: `Acrylic, oil, inks, sometimes sand or raw pigments... Pino
                   explores how each material reacts, mixes, or resists on the surface of the canvas.`
         }
-      }
+      },
+      quote: "« Painting is not what you see, but what you feel. »"
     },
     contactPage: {
       hero: {
@@ -417,8 +422,9 @@ export const translations: Record<Language, Translations> = {
       }
     },
     footer: {
-      location: "Brussels & online",
-      copy: "All rights reserved."
+      c1: "© 2025 Pino Onali. All rights reserved.",
+      c2: "All artworks and images on this site are the property of the artist.",
+      c3: "Site designed and developed by Davit Nersesyan."
     },
   },
   nl: {
@@ -522,7 +528,8 @@ export const translations: Record<Language, Translations> = {
           content: `Acryl, olie, inkten, soms zand of ruwe pigmenten... Pino
                   onderzoekt hoe elk materiaal reageert, mengt of weerstand biedt op het oppervlak van het doek.`
         }
-      }
+      },
+      quote: "« Schilderen is niet wat je ziet, maar wat je voelt. »"
     },
     contactPage: {
       hero: {
@@ -553,8 +560,9 @@ export const translations: Record<Language, Translations> = {
       }
     },
     footer: {
-      location: "Brussel & online",
-      copy: "Alle rechten voorbehouden."
+      c1: "© 2025 Pino Onali. Alle rechten voorbehouden.",
+      c2: "Alle kunstwerken en afbeeldingen op deze site zijn eigendom van de kunstenaar.",
+      c3: "Site ontworpen en ontwikkeld door Davit Nersesyan."
     },
   },
 };

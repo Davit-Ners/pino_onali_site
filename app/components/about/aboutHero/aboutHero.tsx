@@ -1,25 +1,24 @@
+'use client';
 import Image from "next/image";
 import styles from "./aboutHero.module.css";
+import { useTranslations } from "../../languageProvider/languageProvider";
 
 export default function AboutHero() {
+    const t = useTranslations();
+    
     return (
         <section className={styles.hero}>
         <div className={styles.inner}>
             {/* Rail vertical à gauche */}
             <div className={styles.rail}>
             <span className={styles.railLine} />
-            <h1 className={styles.railLabel}>À PROPOS</h1>
+            <span className={styles.railLabel}>{t.aboutPage.hero.rail}</span>
             </div>
 
             {/* Bloc texte central */}
             <div className={styles.textBlock}>
             <h1>Pino Onali</h1>
-            <p>
-                Entre astres, pigments et éclats de lumière, Pino Onali compose
-                des toiles qui oscillent entre contemplation et explosion. Sa
-                peinture ne cherche pas à raconter une histoire linéaire : elle
-                ouvre des portes, crée des atmosphères, laisse le regard voyager.
-            </p>
+            <p>{t.aboutPage.hero.content}</p>
             </div>
 
             {/* Carte portrait à droite */}
@@ -33,10 +32,8 @@ export default function AboutHero() {
                 />
             </div>
             <div className={styles.portraitText}>
-                <p className={styles.role}>Artiste peintre</p>
-                <p className={styles.meta}>
-                Basé à Bruxelles • Inspirations lunaires & cosmiques
-                </p>
+                <p className={styles.role}>{t.aboutPage.hero.image.title}</p>
+                <p className={styles.meta}>{t.aboutPage.hero.image.subtitle}</p>
             </div>
             </div>
         </div>

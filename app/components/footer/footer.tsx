@@ -1,14 +1,16 @@
-"use client"; // ⚡ obligatoire pour écouter les clics côté client
+"use client";
 
 import styles from "./footer.module.css";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "../languageProvider/languageProvider";
 
 export default function Footer() {
   const router = useRouter();
   const [tapCount, setTapCount] = useState(0);
+  const t = useTranslations();
 
   function handleSecretTap() {
     setTapCount((prev) => prev + 1);
@@ -33,10 +35,10 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* zone secrète */}
         <div className={styles.left} onClick={handleSecretTap}>
-          <p>© 2025 Pino Onali. Tous droits réservés.</p>
-          <p>Toutes les œuvres et images présentes sur ce site sont la propriété de l’artiste.</p>
+          <p>{t.footer.c1}</p>
+          <p>{t.footer.c2}</p>
+          <p className={styles.signature}>{t.footer.c3}</p>
         </div>
 
         <div className={styles.right}>
