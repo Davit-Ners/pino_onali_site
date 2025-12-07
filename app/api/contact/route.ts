@@ -10,12 +10,13 @@ export type EmailContent = {
     message: string;
     artwork?: string;
     honeypot?: string;
+    token?: string;
 };
 
 export async function POST(req: Request) {
     try {
         const body: EmailContent = await req.json();
-        const { name, email, message, artwork, honeypot } = body;
+        const { name, email, message, artwork, honeypot, token } = body;
 
         // Honeypot anti-bot : on fait semblant de rÇ¸ussir mais on ignore
         if (honeypot && honeypot.trim().length > 0) {
@@ -26,6 +27,47 @@ export async function POST(req: Request) {
         if (!name || !email || !message) {
             return Response.json(
                 { error: "Missing name, email or message" },
+                { status: 400 }
+            );
+        }
+        
+        const secret = process.env.TURNSTILE_SECRET_KEY;
+        
+        if (!secret) {
+            console.error("TURNSTILE_SECRET_KEY manquant dans les variables d'env.");
+            return Response.json(
+                { error: "Configuration serveur incomplète." },
+                { status: 500 }
+            );
+        }
+
+        if (!token) {
+            return Response.json(
+                { error: "Captcha non fourni." },
+                { status: 400 }
+            );
+        }
+
+        const verifyRes = await fetch(
+            "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+            {
+                method: "POST",
+                headers: { "content-type": "application/x-www-form-urlencoded" },
+                body: `secret=${encodeURIComponent(secret)}&response=${encodeURIComponent(
+                token
+                )}`,
+            }
+        );
+
+        const verifyJson = (await verifyRes.json()) as {
+            success: boolean;
+            "error-codes"?: string[];
+        };
+
+        if (!verifyJson.success) {
+            console.error("Échec vérification Turnstile:", verifyJson["error-codes"]);
+            return Response.json(
+                { error: "Vérification du captcha échouée." },
                 { status: 400 }
             );
         }

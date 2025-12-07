@@ -15,7 +15,7 @@ export default function ContactForm() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [honeypot, setHoneypot] = useState("");
-    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "captchaError">("idle");
     const [token, setToken] = useState("");
 
     useEffect(() => {
@@ -31,13 +31,19 @@ export default function ContactForm() {
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
+        
+        if(!token) {
+            setStatus("captchaError");
+            return;
+        }
+        
         setStatus("loading");
 
         try {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message, artwork, honeypot }),
+                body: JSON.stringify({ name, email, message, artwork, honeypot, token }),
             });
             if (!res.ok) throw new Error("Erreur");
 
@@ -134,6 +140,9 @@ export default function ContactForm() {
             )}
             {status === "error" && (
             <p className={styles.error}>{t.contactPage.form.errorMsg}</p>
+            )}
+            {status === "captchaError" && (
+            <p className={styles.error}>{t.contactPage.form.captchaError}</p>
             )}
         </form>
         </div>

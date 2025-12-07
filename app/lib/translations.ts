@@ -124,6 +124,7 @@ interface Translations {
       succesMsg: string;
       errorMsg: string;
       interess: string;
+      captchaError: string;
     }
   };
   footer: {
@@ -269,7 +270,8 @@ export const translations: Record<Language, Translations> = {
         buttonLoading: "Envoi...",
         succesMsg: "Merci, votre message a bien été envoyé. Pino vous répondra dès que possible.",
         errorMsg: "Une erreur est survenue. Veuillez réessayer plus tard.",
-        interess: "Je suis intéressé(e) par l’œuvre : "
+        interess: "Je suis intéressé(e) par l’œuvre : ",
+        captchaError: "Merci de valider le captcha avant d’envoyer votre message."
       }
     },
     footer: {
@@ -407,7 +409,8 @@ export const translations: Record<Language, Translations> = {
         buttonLoading: "Sending...",
         succesMsg: "Thank you, your message has been sent successfully. Pino will reply as soon as possible.",
         errorMsg: "An error occurred. Please try again later.",
-        interess: "I am interested in the artwork: "
+        interess: "I am interested in the artwork: ",
+        captchaError: "Please validate the captcha before sending your message."
       }
     },
     footer: {
@@ -545,7 +548,8 @@ export const translations: Record<Language, Translations> = {
         buttonLoading: "Verzenden...",
         succesMsg: "Bedankt, uw bericht is succesvol verzonden. Pino zal zo snel mogelijk antwoorden.",
         errorMsg: "Er is een fout opgetreden. Probeer het later opnieuw.",
-        interess: "Ik ben geïnteresseerd in het kunstwerk: "
+        interess: "Ik ben geïnteresseerd in het kunstwerk: ",
+        captchaError: "Bevestig de captcha voordat u uw bericht verstuurt."
       }
     },
     footer: {
