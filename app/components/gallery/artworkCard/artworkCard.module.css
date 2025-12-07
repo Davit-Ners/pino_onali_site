@@ -41,11 +41,13 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
+  pointer-events: none;
   transition: opacity var(--transition-fast);
 }
 
 .card:hover .hoverOverlay {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .btn {
@@ -63,4 +65,63 @@
 .btn:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
+}
+
+.secondaryBtn {
+  padding: 9px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border-strong);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.actions {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 10px;
+  width: 80%;
+  max-width: 260px;
+  align-items: stretch;
+}
+
+.showOverlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-text);
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.03);
+}
+
+@media (min-width: 768px) {
+  .actions {
+    flex-direction: row;
+  }
 }

@@ -95,6 +95,7 @@
   align-items: center;
   justify-content: center;
   transition: background var(--transition-fast), transform var(--transition-fast);
+  z-index: 1;
 }
 
 .closeButton:hover {

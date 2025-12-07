@@ -13,11 +13,13 @@ type Props = {
 export default function ArtworkGrid({ artworks }: Props) {
     const t = useTranslations();
     const [selected, setSelected] = useState<Artwork | null>(null);
+    const [activeOverlayId, setActiveOverlayId] = useState<number | null>(null);
 
     useEffect(() => {
         function handleEsc(event: KeyboardEvent) {
             if (event.key === "Escape") {
                 setSelected(null);
+                setActiveOverlayId(null);
             }
         }
         if (selected) {
@@ -30,6 +32,7 @@ export default function ArtworkGrid({ artworks }: Props) {
 
     function closeModal() {
         setSelected(null);
+        setActiveOverlayId(null);
     }
 
     function handleOverlayClick(e: MouseEvent<HTMLDivElement>) {
@@ -51,7 +54,16 @@ export default function ArtworkGrid({ artworks }: Props) {
                     <ArtworkCard
                         key={artwork.id}
                         artwork={artwork}
-                        onSelect={setSelected}
+                        onSelect={(art) => {
+                            setSelected(art);
+                            setActiveOverlayId(null);
+                        }}
+                        isActiveOverlay={activeOverlayId === artwork.id}
+                        hasAnyOverlay={activeOverlayId !== null}
+                        onShowOverlay={() => setActiveOverlayId(artwork.id)}
+                        onHideOverlay={() => {
+                            setActiveOverlayId(null);
+                        }}
                     />
                 ))}
             </div>
