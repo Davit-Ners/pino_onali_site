@@ -85,6 +85,13 @@ export default function ArtworkCard({
         onSelect(artwork);
     }
 
+    const overlayStyle: React.CSSProperties | undefined = isTouchMode
+        ? {
+            opacity: isActiveOverlay ? 1 : 0,
+            pointerEvents: isActiveOverlay ? "auto" : "none",
+          }
+        : undefined;
+
     return (
         <div className={styles.card} onClick={handleCardClick}>
         <div className={styles.imageWrapper}>
@@ -102,7 +109,10 @@ export default function ArtworkCard({
             {artwork.sizeDescription && <p>{artwork.sizeDescription}</p>}
         </div>
 
-        <div className={`${styles.hoverOverlay} ${isActiveOverlay ? styles.showOverlay : ""}`}>
+        <div
+            className={`${styles.hoverOverlay} ${isActiveOverlay ? styles.showOverlay : ""}`}
+            style={overlayStyle}
+        >
             {isTouchMode && (
                 <button
                 type="button"
