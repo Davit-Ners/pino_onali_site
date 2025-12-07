@@ -28,8 +28,8 @@
   --max-width: 1200px;
 
   /* ----- Fonts ----- */
-  --font-main: "Georgia", serif;
-  --font-alt: "Inter", sans-serif;
+  --font-main: "Inter", "SF Pro Display", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-alt: "Inter", "SF Pro Display", "Segoe UI", system-ui, -apple-system, sans-serif;
 
   /* ----- Effects ----- */
   --blur-bg: blur(6px);

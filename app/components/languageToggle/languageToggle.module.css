@@ -46,7 +46,7 @@
 }
 
 .code {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-alt);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
