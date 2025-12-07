@@ -1,11 +1,32 @@
 "use client";
 
+import { Suspense, useMemo, useState, type FormEvent } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
-import { FormEvent, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./login.module.css";
 
-export default function AdminLoginPage() {
+function LoginSkeleton() {
+    return (
+        <div className={styles.page}>
+        <div className={styles.card} aria-hidden="true">
+            <div className={styles.skeletonTitle} />
+            <div className={styles.skeletonSubtitle} />
+
+            <div className={styles.form}>
+            <div className={styles.field}>
+                <div className={styles.skeletonLabel} />
+                <div className={styles.skeletonInput} />
+            </div>
+            <div className={styles.skeletonButton} />
+            </div>
+
+            <div className={styles.skeletonNote} />
+        </div>
+        </div>
+    );
+}
+
+function AdminLoginForm() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const from = searchParams.get("from") || "/admin";
@@ -110,4 +131,12 @@ export default function AdminLoginPage() {
         </div>
         </div>
     );
-};
+}
+
+export default function AdminLoginPage() {
+    return (
+        <Suspense fallback={<LoginSkeleton />}>
+            <AdminLoginForm />
+        </Suspense>
+    );
+}
