@@ -3,34 +3,42 @@
 import styles from "./footer.module.css";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "../languageProvider/languageProvider";
 
 export default function Footer() {
   const router = useRouter();
-  const [tapCount, setTapCount] = useState(0);
+  const tapCountRef = useRef(0);
+  const resetTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const t = useTranslations();
 
   function handleSecretTap() {
-    setTapCount((prev) => prev + 1);
-  }
+    const next = tapCountRef.current + 1;
+    tapCountRef.current = next;
 
-  // Reset du compteur et détection triple tap
-  useEffect(() => {
-    if (tapCount === 3) {
+    if (next === 3) {
+      tapCountRef.current = 0;
       router.push("/admin");
-      setTapCount(0);
       return;
     }
 
-    // reset automatique après 600ms s’il ne continue pas
-    const timeout = setTimeout(() => {
-      setTapCount(0);
-    }, 600);
+    if (resetTimeout.current) {
+      clearTimeout(resetTimeout.current);
+    }
 
-    return () => clearTimeout(timeout);
-  }, [tapCount, router]);
+    resetTimeout.current = setTimeout(() => {
+      tapCountRef.current = 0;
+    }, 600);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (resetTimeout.current) {
+        clearTimeout(resetTimeout.current);
+      }
+    }
+  }, []);
 
   return (
     <footer className={styles.footer}>

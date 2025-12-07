@@ -1,6 +1,5 @@
- "use client";
+'use client';
 
-import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import styles from "./confirmDialog.module.css";
 
@@ -23,13 +22,7 @@ export default function ConfirmDialog({
     onConfirm,
     onCancel,
 }: Props) {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted || !open) return null;
+    if (!open || typeof document === "undefined") return null;
 
     return createPortal(
         <div className={styles.overlay}>

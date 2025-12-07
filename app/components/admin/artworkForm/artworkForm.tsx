@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import Image from "next/image";
+import { ChangeEvent, FormEvent, useCallback, useEffect, useState } from "react";
 import styles from "./artworkForm.module.css";
 import { Artwork } from "@/app/generated/prisma/client";
 
@@ -24,6 +25,14 @@ export default function ArtworkForm({
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
+    const resetForm = useCallback(() => {
+        setTitle("");
+        setImageUrl("");
+        setDescription("");
+        setSold(false);
+        setUploadError(null);
+    }, []);
+
     useEffect(() => {
         if (editingArtwork) {
             setTitle(editingArtwork.title);
@@ -34,16 +43,7 @@ export default function ArtworkForm({
         } else {
             resetForm();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [editingArtwork]);
-
-    function resetForm() {
-        setTitle("");
-        setImageUrl("");
-        setDescription("");
-        setSold(false);
-        setUploadError(null);
-    }
+    }, [editingArtwork, resetForm]);
     
     async function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0];
@@ -163,7 +163,13 @@ export default function ArtworkForm({
                 {imageUrl && (
                     <div className={styles.preview}>
                     <div className={styles.previewFrame}>
-                        <img src={imageUrl} alt="Previsualisation" />
+                        <Image
+                            src={imageUrl}
+                            alt="Previsualisation"
+                            fill
+                            sizes="200px"
+                            className={styles.previewImg}
+                        />
                     </div>
                     <p className={styles.previewCaption}>Prévisualisation</p>
                     </div>

@@ -1,16 +1,5 @@
 export type Language = "fr" | "en" | "nl";
 
-interface ContactItem {
-  label: string;
-  description: string;
-  href: string;
-}
-
-interface TimelineItem {
-  title: string;
-  description: string;
-}
-
 interface Translations {
   skipToContent: string;
   nav: {

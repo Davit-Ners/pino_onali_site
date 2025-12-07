@@ -18,37 +18,36 @@ interface LanguageProviderProps {
 
 const SUPPORTED_LANGUAGES: Language[] = ["fr", "en", "nl"];
 
+function getInitialLanguage(): Language {
+  if (typeof window === "undefined") {
+    return defaultLanguage;
+  }
+
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  if (stored && SUPPORTED_LANGUAGES.includes(stored as Language)) {
+    return stored as Language;
+  }
+
+  if (typeof navigator !== "undefined") {
+    if (navigator.language.startsWith("nl")) return "nl";
+    if (navigator.language.startsWith("en")) return "en";
+  }
+
+  return defaultLanguage;
+}
+
 export default function LanguageProvider({ children }: LanguageProviderProps) {
-    const [language, setLanguage] = useState<Language>(defaultLanguage);
-    const [mounted, setMounted] = useState(false);
+    const [language, setLanguage] = useState<Language>(getInitialLanguage);
 
     useEffect(() => {
-        if (typeof window === "undefined") {
-        return;
-        }
-
-        const stored = window.localStorage.getItem(STORAGE_KEY);
-        if (stored && SUPPORTED_LANGUAGES.includes(stored as Language)) {
-            setLanguage(stored as Language);
-        } else if (typeof navigator !== "undefined") {
-            if (navigator.language.startsWith("nl")) {
-                setLanguage("nl");
-            } else if (navigator.language.startsWith("en")) {
-                setLanguage("en");
-            }
-        }
-        setMounted(true);
-    }, []);
-
-    useEffect(() => {
-            if (!mounted) {
-                return;
-            };
-
+        if (typeof document !== "undefined") {
             document.documentElement.lang = language;
             document.documentElement.setAttribute("data-language", language);
+        }
+        if (typeof window !== "undefined") {
             window.localStorage.setItem(STORAGE_KEY, language);
-        }, [language, mounted]);
+        }
+    }, [language]);
 
     const value = useMemo(
         () => ({

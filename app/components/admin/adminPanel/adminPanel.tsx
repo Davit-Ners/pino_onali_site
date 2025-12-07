@@ -95,7 +95,7 @@ export default function AdminPanel({ artworks }: { artworks: Artwork[] }) {
     async function handleLogout() {
         try {
             await fetch("/api/admin/logout", { method: "POST" });
-        } catch (e) {
+        } catch {
             // even if logout API fails, still redirect away
         }
         window.location.href = "/";

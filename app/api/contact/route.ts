@@ -23,9 +23,9 @@ export async function POST(req: Request) {
             return Response.json({ success: true });
         }
 
-        if (!email || !message) {
+        if (!name || !email || !message) {
             return Response.json(
-                { error: "Missing email or message" },
+                { error: "Missing name, email or message" },
                 { status: 400 }
             );
         }

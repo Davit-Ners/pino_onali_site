@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "./contactForm.module.css";
 import { useTranslations } from "../../languageProvider/languageProvider";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function ContactForm() {
     const searchParams = useSearchParams();
@@ -15,8 +16,8 @@ export default function ContactForm() {
     const [message, setMessage] = useState("");
     const [honeypot, setHoneypot] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [token, setToken] = useState("");
 
-    // S'assure que le honeypot est vide au montage (et limite l'autofill)
     useEffect(() => {
         setHoneypot("");
     }, []);
@@ -50,7 +51,7 @@ export default function ContactForm() {
         } catch {
         setStatus("error");
         }
-    }
+    };
 
     return (
         <div className={styles.card}>
@@ -108,6 +109,16 @@ export default function ContactForm() {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder={t.contactPage.form.messageEx}
             />
+            </div>
+            
+            <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+                <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(t) => setToken(t)}
+                options={{
+                    theme: "dark",
+                }}
+                />
             </div>
 
             <button
