@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { FormEvent, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./login.module.css";
 
@@ -10,29 +11,41 @@ export default function AdminLoginPage() {
     const from = searchParams.get("from") || "/admin";
 
     const [password, setPassword] = useState("");
+    const [captchaToken, setCaptchaToken] = useState("");
+    const [requireCaptcha, setRequireCaptcha] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const turnstileSiteKey = useMemo(() => process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY, []);
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         setError(null);
+
+        if (requireCaptcha && !captchaToken) {
+            setError("Merci de valider le captcha.");
+            return;
+        }
+
         setLoading(true);
 
         try {
         const res = await fetch("/api/admin/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ password }),
+            body: JSON.stringify({ password, captchaToken: requireCaptcha ? captchaToken : undefined }),
         });
 
         if (!res.ok) {
             const data = await res.json().catch(() => null);
             setError(data?.error || "Mot de passe incorrect.");
+            setRequireCaptcha(Boolean(data?.captchaRequired));
             setLoading(false);
             return;
         }
 
-        // Succès → rediriger vers /admin (ou la page d'origine)
+        setCaptchaToken("");
+        setRequireCaptcha(false);
+
         router.push(from);
         router.refresh();
         } catch {
@@ -62,6 +75,22 @@ export default function AdminLoginPage() {
                 required
                 />
             </div>
+
+            {requireCaptcha && turnstileSiteKey && (
+                <div style={{ marginTop: "0.75rem" }}>
+                <Turnstile
+                    siteKey={turnstileSiteKey}
+                    onSuccess={(token) => setCaptchaToken(token)}
+                    onExpire={() => setCaptchaToken("")}
+                    options={{ theme: "dark" }}
+                />
+                </div>
+            )}
+            {requireCaptcha && !turnstileSiteKey && (
+                <p className={styles.error}>
+                Captcha requis mais la clé publique Turnstile est manquante.
+                </p>
+            )}
 
             {error && <p className={styles.error}>{error}</p>}
 
