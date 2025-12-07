@@ -11,3 +11,10 @@ FONT - changer tout font en 'navbar'
 Garder lune rouge pour image dans onglet
 
 Faire le responsive de la page admin panel
+
+Fonts utilisées dans le projet :
+
+Georgia (variable CSS --font-main, utilisée globalement et dans plusieurs formulaires/pages)
+Inter (variable CSS --font-alt, utilisée dans les sections About)
+Montserrat (header, language toggle)
+Helvetica Neue / Arial (templates d’e-mails de contact)
