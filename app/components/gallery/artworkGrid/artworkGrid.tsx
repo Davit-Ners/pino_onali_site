@@ -12,6 +12,7 @@ type Props = {
 
 export default function ArtworkGrid({ artworks }: Props) {
     const t = useTranslations();
+    const [filter, setFilter] = useState<"all" | "available" | "sold">("all");
     const [selected, setSelected] = useState<Artwork | null>(null);
     const [activeOverlayId, setActiveOverlayId] = useState<number | null>(null);
 
@@ -30,6 +31,12 @@ export default function ArtworkGrid({ artworks }: Props) {
         return () => document.removeEventListener("keydown", handleEsc);
     }, [selected]);
 
+    const filteredArtworks = artworks.filter((artwork) => {
+        if (filter === "available") return !artwork.sold;
+        if (filter === "sold") return artwork.sold;
+        return true;
+    });
+
     function closeModal() {
         setSelected(null);
         setActiveOverlayId(null);
@@ -44,13 +51,29 @@ export default function ArtworkGrid({ artworks }: Props) {
     return (
         <div className={styles.wrapper}>
         <div className={styles.panel}>
-            <h1 className={styles.title}>{t.gallery.title}</h1>
-            <p className={styles.subtitle}>
-            {t.gallery.subtitle}
-            </p>
+            <div className={styles.headerRow}>
+            <div>
+                <h1 className={styles.title}>{t.gallery.title}</h1>
+                <p className={styles.subtitle}>
+                {t.gallery.subtitle}
+                </p>
+            </div>
+            <div className={styles.controls}>
+                <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value as "all" | "available" | "sold")}
+                className={styles.filter}
+                aria-label="Filtrer les oeuvres"
+                >
+                <option value="all">{t.gallery.filterAll}</option>
+                <option value="available">{t.gallery.filterAvailable}</option>
+                <option value="sold">{t.gallery.filterSold}</option>
+                </select>
+            </div>
+            </div>
 
             <div className={styles.grid}>
-                {artworks.map((artwork) => (
+                {filteredArtworks.map((artwork) => (
                     <ArtworkCard
                         key={artwork.id}
                         artwork={artwork}

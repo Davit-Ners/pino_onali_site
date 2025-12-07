@@ -50,6 +50,9 @@ interface Translations {
     interess: string;
     soldout: string;
     zoom: string;
+    filterAll: string;
+    filterAvailable: string;
+    filterSold: string;
   };
   aboutPage: {
     hero: {
@@ -190,7 +193,10 @@ export const translations: Record<Language, Translations> = {
         subtitle: "Découvrez une sélection d’œuvres issues de l’univers de Pino Onali.",
         interess: "Cette œuvre m'intéresse",
         soldout: "SOLD OUT",
-        zoom: "Zoom"
+        zoom: "Zoom",
+        filterAll: "Toutes les œuvres",
+        filterAvailable: "Disponibles",
+        filterSold: "Vendues"
     },
     aboutPage: {
       hero: {
@@ -334,7 +340,10 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Discover a selection of artworks from the universe of Pino Onali.",
       interess: "I am interested in this artwork",
       soldout: "SOLD OUT",
-      zoom: "Zoom"
+      zoom: "Zoom",
+      filterAll: "All artworks",
+      filterAvailable: "Available",
+      filterSold: "Sold out"
     },
     aboutPage: {
         hero: {
@@ -474,7 +483,10 @@ export const translations: Record<Language, Translations> = {
       subtitle: "Ontdek een selectie van kunstwerken uit het universum van Pino Onali.",
       interess: "Ik ben geïnteresseerd in dit kunstwerk",
       soldout: "UITVERKOCHT",
-      zoom: "Zoom"
+      zoom: "Zoom",
+      filterAll: "Alle kunstwerken",
+      filterAvailable: "Beschikbaar",
+      filterSold: "Verkocht"
     },
     aboutPage: {
       hero: {
