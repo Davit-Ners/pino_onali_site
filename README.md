@@ -18,3 +18,11 @@ Georgia (variable CSS --font-main, utilisée globalement et dans plusieurs formu
 Inter (variable CSS --font-alt, utilisée dans les sections About)
 Montserrat (header, language toggle)
 Helvetica Neue / Arial (templates d’e-mails de contact)
+
+
+DATES EXPO 19/12 - 20/01
+Logo diametre + grand
+
+SOLD OUT - riche, rouge, IDK3
+
+Adresse pour expo : Fratelli Rossetti - 65 Boulevard de Waterloo 1000 bx (A rajouter en dessous de date)

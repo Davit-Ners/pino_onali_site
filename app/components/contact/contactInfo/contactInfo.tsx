@@ -2,8 +2,8 @@
 import { useTranslations } from "../../languageProvider/languageProvider";
 import styles from "./contactInfo.module.css";
 
-const PHONE = "+32 4X XX XX XXX";
-const EMAIL = "contact@pinoonali.com";
+const PHONE = "+32 495 11 75 05";
+const EMAIL = "pinoonali@hotmail.be";
 
 export default function ContactInfo() {
     const t = useTranslations();

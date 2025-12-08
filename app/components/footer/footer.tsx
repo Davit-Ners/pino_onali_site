@@ -50,10 +50,10 @@ export default function Footer() {
         </div>
 
         <div className={styles.right}>
-          <Link href="https://instagram.com" target="_blank">
+          <Link href="https://www.instagram.com/pinoonali/" target="_blank">
             <FaInstagram />
           </Link>
-          <Link href="https://facebook.com" target="_blank">
+          <Link href="https://www.facebook.com/pino.onali" target="_blank">
             <FaFacebook />
           </Link>
         </div>

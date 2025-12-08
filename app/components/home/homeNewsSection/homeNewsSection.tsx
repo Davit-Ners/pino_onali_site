@@ -44,10 +44,10 @@ export default function HomeNewsSection() {
             <div className={styles.text}>
                 <h3 className={styles.subtitle}>{highlight.subtitle}</h3>
                 <p className={styles.description}>{highlight.description}</p>
-
+{/* 
                 <button type="button" className={styles.cta}>
                 {highlight.ctaLabel}
-                </button>
+                </button> */}
             </div>
             </div>
         </div>

@@ -106,7 +106,7 @@ export default function ArtworkCard({
 
         <div className={styles.info}>
             <h3>{artwork.title}</h3>
-            {artwork.sizeDescription && <p>{artwork.sizeDescription}</p>}
+            {artwork.sizeDescription && <p>⌀ - 100cm</p>}
         </div>
 
         <div

@@ -180,11 +180,11 @@ export const translations: Record<Language, Translations> = {
         kicker: "Prochaine exposition",
         title: "Milky Moon",
         subtitle: "Une série d’œuvres autour des astres et constellations.",
-        meta: "Bruxelles — 12 > 20 Janvier 2025",
+        meta: "Bruxelles — 19 Decemebre 2025 > 25 Janvier 2026",
         description: `
-        Revoilà ma Lune tant aimée, en déclinaison ludique, plus petite, elle guide la voie lactée et décide de tout voir et surtout, de tout entendre grâce à ses oreilles noirs recouvertes de résine pour la rendre plus réceptive.. cela vous rappellera certainement quelque chose qui pourtant n’a jamais prononcé un seul mot,mais que tous ont toujours compris.
+        Revoilà ma Lune tant aimée, en déclinaison ludique, plus petite, elle guide la voie lactée et décide de tout voir et surtout, de tout entendre grâce à ses oreilles noirs recouvertes de résine pour la rendre plus réceptive.. cela vous rappellera certainement quelque chose qui pourtant n’a jamais prononcé un seul mot, mais que tous ont toujours compris.
         Elle se décline cette fois en nuances plus fluorescente, et parfois reprend le style de son aïeul.
-        Bonne route sur la Milky Moon.🌔`,
+        Bonne route sur la Milky Moon.`,
         ctaLabel: "En savoir plus"
       }
     },
@@ -331,7 +331,7 @@ export const translations: Record<Language, Translations> = {
         description: `
           Here is my beloved Moon again, in a playful variation, smaller, it guides the Milky Way and decides to see everything and above all, hear everything thanks to its black ears covered with resin to make it more receptive.. this will certainly remind you of something that never uttered a single word, but which everyone always understood.
           It is this time declined in more fluorescent shades, and sometimes resumes the style of its ancestor.
-          Have a good trip on the Milky Moon.🌔`,
+          Have a good trip on the Milky Moon.`,
         ctaLabel: "Learn more"
       }
     },
@@ -474,7 +474,7 @@ export const translations: Record<Language, Translations> = {
         description: `
           Hier is mijn geliefde Maan weer, in een speelse variatie, kleiner, zij wijst de Melkweg en besluit alles te zien en vooral, alles te horen dankzij haar zwarte oren bedekt met hars om haar ontvankelijker te maken.. dit zal je zeker herinneren aan iets dat nooit een woord heeft gezegd, maar dat iedereen altijd heeft begrepen.
           Dit keer is ze uitgevoerd in meer fluorescerende tinten, en soms neemt ze de stijl van haar voorouder over.
-          Goede reis op de Milky Moon.🌔`,
+          Goede reis op de Milky Moon.`,
         ctaLabel: "Meer informatie"
       }
     },
