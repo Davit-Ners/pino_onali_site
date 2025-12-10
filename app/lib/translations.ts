@@ -346,7 +346,7 @@ export const translations: Record<Language, Translations> = {
       hero: {
         title: "Mentions légales & politique de confidentialité",
         subtitle: "Informations requises par le RGPD et la loi belge pour l’édition et la publication du site.",
-        updated: "Dernière mise à jour : 08/12/2025"
+        updated: "Dernière mise à jour : 10/12/2025"
       },
       editor: {
         title: "Éditeur du site",
@@ -564,7 +564,7 @@ export const translations: Record<Language, Translations> = {
       hero: {
         title: "Legal notice & privacy policy",
         subtitle: "Mandatory information under Belgian law and the GDPR for publishing this website.",
-        updated: "Last updated: 12/08/2025"
+        updated: "Last updated: 12/10/2025"
       },
       editor: {
         title: "Site publisher",
@@ -782,7 +782,7 @@ export const translations: Record<Language, Translations> = {
       hero: {
         title: "Juridische vermeldingen & privacybeleid",
         subtitle: "Verplichte informatie volgens Belgische wetgeving en de AVG voor het publiceren van deze site.",
-        updated: "Laatst bijgewerkt: 08/12/2025"
+        updated: "Laatst bijgewerkt: 10/12/2025"
       },
       editor: {
         title: "Uitgever van de site",
