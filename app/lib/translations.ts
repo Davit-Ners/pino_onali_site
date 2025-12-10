@@ -149,6 +149,7 @@ interface Translations {
       identity: string;
       contact: string;
       location: string;
+      developer: string;
     };
     data: {
       title: string;
@@ -351,7 +352,8 @@ export const translations: Record<Language, Translations> = {
         title: "Éditeur du site",
         identity: "Site édité par Pino Onali, artiste peintre indépendant.",
         contact: "Contact principal :",
-        location: "Adresse professionnelle : Bruxelles, Belgique"
+        location: "Adresse professionnelle : Bruxelles, Belgique",
+        developer: "Conception et développement : Davit Nersesyan (prestataire technique, non responsable du contenu)."
       },
       data: {
         title: "Données collectées et finalités",
@@ -568,7 +570,8 @@ export const translations: Record<Language, Translations> = {
         title: "Site publisher",
         identity: "Website published by Pino Onali, independent visual artist.",
         contact: "Primary contact:",
-        location: "Business location: Brussels, Belgium"
+        location: "Business location: Brussels, Belgium",
+        developer: "Design & development: Davit Nersesyan (technical provider, not responsible for content)."
       },
       data: {
         title: "Data collected & purposes",
@@ -785,7 +788,8 @@ export const translations: Record<Language, Translations> = {
         title: "Uitgever van de site",
         identity: "Site uitgegeven door Pino Onali, onafhankelijke beeldend kunstenaar.",
         contact: "Hoofdcontact:",
-        location: "Zakelijke locatie: Brussel, België"
+        location: "Zakelijke locatie: Brussel, België",
+        developer: "Ontwerp & ontwikkeling: Davit Nersesyan (technische leverancier, niet verantwoordelijk voor de inhoud)."
       },
       data: {
         title: "Verzamelde gegevens & doeleinden",

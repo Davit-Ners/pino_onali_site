@@ -109,6 +109,14 @@ body.bg-admin {
   background-attachment: fixed;
 }
 
+body.bg-legal {
+  background-image: url("/bg-legal.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* Overlay sombre derrière tout */
 body::before {
   content: "";

@@ -27,6 +27,7 @@ export default function LegalPage() {
             <br />
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a> • <a href={`tel:${PHONE}`}>{PHONE}</a>
           </p>
+          <p className={styles.note}>{t.legalPage.editor.developer}</p>
         </div>
       </section>
 

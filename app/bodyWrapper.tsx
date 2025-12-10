@@ -10,7 +10,7 @@ export default function BodyWrapper({ children }: { children: ReactNode }) {
   if (pathname.startsWith("/galerie")) bgClass = "bg-galerie";
   else if (pathname.startsWith("/about")) bgClass = "bg-about";
   else if (pathname.startsWith("/contact")) bgClass = "bg-contact";
-  else if (pathname.startsWith("/legal")) bgClass = "bg-contact";
+  else if (pathname.startsWith("/legal")) bgClass = "bg-legal";
   else if (pathname.startsWith("/admin")) bgClass = "bg-admin";
 
   return <body  className={bgClass} style={{
