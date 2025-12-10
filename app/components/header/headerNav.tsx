@@ -25,6 +25,7 @@ export default function HeaderNav({ isAdmin }: Props) {
             <Link href="/galerie">{t.nav.gallery}</Link>
             <Link href="/about">{t.nav.about}</Link>
             <Link href="/contact">{t.nav.contact}</Link>
+            {/* <Link href="/legal">{t.nav.legal}</Link> */}
             {isAdmin && (
             <Link className={styles.adminBadge} href="/admin">
                 Admin
@@ -61,6 +62,9 @@ export default function HeaderNav({ isAdmin }: Props) {
             </Link>
             <Link href="/contact" onClick={closeMenu}>
             {t.nav.contact}
+            </Link>
+            <Link href="/legal" onClick={closeMenu}>
+            {t.nav.legal}
             </Link>
             {isAdmin && (
             <Link

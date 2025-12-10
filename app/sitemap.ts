@@ -18,5 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: "https://pinoonali.com/contact",
         lastModified: new Date(),
         },
+        {
+        url: "https://pinoonali.com/legal",
+        lastModified: new Date(),
+        },
     ];
 };

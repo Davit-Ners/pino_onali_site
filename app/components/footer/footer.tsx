@@ -47,6 +47,9 @@ export default function Footer() {
           <p>{t.footer.c1}</p>
           <p>{t.footer.c2}</p>
           <p className={styles.signature}>{t.footer.c3}</p>
+          <p className={styles.legal}>
+            <Link href="/legal">{t.footer.legalLink}</Link>
+          </p>
         </div>
 
         <div className={styles.right}>

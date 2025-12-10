@@ -39,3 +39,14 @@
   opacity: 0.65;
   margin-top: 4px;
 }
+
+.legal {
+  margin-top: 6px;
+}
+
+.legal a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}

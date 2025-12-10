@@ -7,6 +7,7 @@ interface Translations {
     gallery: string;
     about: string;
     contact: string;
+    legal: string;
   };
   themeToggle: {
     light: string;
@@ -135,6 +136,57 @@ interface Translations {
     c1: string;
     c2: string;
     c3: string;
+    legalLink: string;
+  };
+  legalPage: {
+    hero: {
+      title: string;
+      subtitle: string;
+      updated: string;
+    };
+    editor: {
+      title: string;
+      identity: string;
+      contact: string;
+      location: string;
+    };
+    data: {
+      title: string;
+      intro: string;
+      items: {
+        title: string;
+        content: string;
+      }[];
+    };
+    legalBases: {
+      title: string;
+      items: string[];
+    };
+    recipients: {
+      title: string;
+      items: string[];
+      note: string;
+    };
+    retention: {
+      title: string;
+      items: string[];
+    };
+    rights: {
+      title: string;
+      intro: string;
+      items: string[];
+      outro: string;
+      authority: string;
+    };
+    cookies: {
+      title: string;
+      intro: string;
+      items: string[];
+    };
+    social: {
+      title: string;
+      content: string;
+    };
   };
 };
 
@@ -147,7 +199,8 @@ export const translations: Record<Language, Translations> = {
       home: "Accueil",
       gallery: "Galerie",
       about: "À Propos",
-      contact: "Contact"
+      contact: "Contact",
+      legal: "Mentions légales"
     },
     themeToggle: {
       light: "Clair",
@@ -285,7 +338,80 @@ export const translations: Record<Language, Translations> = {
     footer: {
       c1: "© 2025 Pino Onali. Tous droits réservés.",
       c2: "Toutes les œuvres et images présentes sur ce site sont la propriété de l’artiste.",
-      c3: "Site conçu et développé par Davit Nersesyan."
+      c3: "Site conçu et développé par Davit Nersesyan.",
+      legalLink: "Mentions légales & politique de confidentialité"
+    },
+    legalPage: {
+      hero: {
+        title: "Mentions légales & politique de confidentialité",
+        subtitle: "Informations requises par le RGPD et la loi belge pour l’édition et la publication du site.",
+        updated: "Dernière mise à jour : 08/12/2025"
+      },
+      editor: {
+        title: "Éditeur du site",
+        identity: "Site édité par Pino Onali, artiste peintre indépendant.",
+        contact: "Contact principal :",
+        location: "Adresse professionnelle : Bruxelles, Belgique"
+      },
+      data: {
+        title: "Données collectées et finalités",
+        intro: "Les données personnelles traitées sur ce site servent uniquement à répondre aux demandes envoyées via le formulaire de contact :",
+        items: [
+          {
+            title: "Formulaire de contact",
+            content: "nom, adresse e-mail, contenu du message et, le cas échéant, œuvre qui vous intéresse. Ces données sont nécessaires pour vous répondre."
+          },
+          {
+            title: "Sécurité anti-bot",
+            content: "Cloudflare Turnstile vérifie que la soumission vient d’une personne humaine. Cloudflare peut recevoir des données techniques (adresse IP, empreintes navigateur)."
+          }
+        ]
+      },
+      legalBases: {
+        title: "Bases légales (RGPD)",
+        items: [
+          "Article 6.1.f – intérêt légitime pour pouvoir répondre aux demandes que vous initiez via le formulaire.",
+          "Article 6.1.a – votre consentement explicite pour l’envoi du formulaire et l’utilisation du captcha de sécurité."
+        ]
+      },
+      recipients: {
+        title: "Destinataires et sous-traitants",
+        items: [
+          "Les messages sont acheminés par le service d’e-mailing Resend uniquement pour transmettre votre demande à l’artiste.",
+          "Cloudflare (Turnstile) traite des données techniques pour valider le captcha anti-bot."
+        ],
+        note: "Ces prestataires peuvent traiter des données hors UE (États-Unis). Des Clauses Contractuelles Types de la Commission européenne sont utilisées par ces services pour encadrer les transferts."
+      },
+      retention: {
+        title: "Durées de conservation",
+        items: [
+          "Messages reçus : conservés dans la messagerie le temps de traiter et de suivre l’échange, puis archivés au maximum 24 mois sauf obligation légale.",
+          "Données techniques du captcha : conservées par Cloudflare pour la durée strictement nécessaire à la vérification."
+        ]
+      },
+      rights: {
+        title: "Vos droits RGPD",
+        intro: "Vous pouvez à tout moment exercer vos droits (accès, rectification, suppression, limitation, opposition, portabilité) en écrivant à pinoonali@hotmail.be.",
+        items: [
+          "Droit d’opposition : vous pouvez vous opposer au traitement fondé sur l’intérêt légitime.",
+          "Droit de retrait du consentement : pour les traitements basés sur votre consentement.",
+          "Droit d’introduire une réclamation auprès de l’Autorité de protection des données (APD) en Belgique."
+        ],
+        outro: "Une réponse vous sera apportée dans un délai maximal d’un mois (prolongeable de deux mois en cas de demande complexe).",
+        authority: "Autorité de protection des données (APD) – Rue de la Presse 35, 1000 Bruxelles – contact@apd-gba.be – https://www.autoriteprotectiondonnees.be"
+      },
+      cookies: {
+        title: "Cookies et traceurs",
+        intro: "Ce site ne dépose pas de cookies publicitaires ni d’analyse d’audience. Seuls des traceurs strictement nécessaires peuvent être utilisés :",
+        items: [
+          "Cookie/jeton Cloudflare Turnstile pour la protection anti-bot.",
+          "Stockage local de la langue choisie (localStorage) pour afficher le site dans la langue sélectionnée."
+        ]
+      },
+      social: {
+        title: "Réseaux sociaux",
+        content: "Les liens vers Instagram et Facebook renvoient vers les pages officielles de l’artiste. Aucune donnée n’est partagée automatiquement : vous ne transmettez des informations à ces plateformes que lorsque vous cliquez sur le lien ou interagissez avec elles."
+      }
     },
   },
   en: {
@@ -294,7 +420,8 @@ export const translations: Record<Language, Translations> = {
       home: "Home",
       gallery: "Gallery",
       about: "About",
-      contact: "Contact"
+      contact: "Contact",
+      legal: "Legal & Privacy"
     },
     themeToggle: {
       light: "Light",
@@ -428,7 +555,80 @@ export const translations: Record<Language, Translations> = {
     footer: {
       c1: "© 2025 Pino Onali. All rights reserved.",
       c2: "All artworks and images on this site are the property of the artist.",
-      c3: "Site designed and developed by Davit Nersesyan."
+      c3: "Site designed and developed by Davit Nersesyan.",
+      legalLink: "Legal notice & Privacy policy"
+    },
+    legalPage: {
+      hero: {
+        title: "Legal notice & privacy policy",
+        subtitle: "Mandatory information under Belgian law and the GDPR for publishing this website.",
+        updated: "Last updated: 12/08/2025"
+      },
+      editor: {
+        title: "Site publisher",
+        identity: "Website published by Pino Onali, independent visual artist.",
+        contact: "Primary contact:",
+        location: "Business location: Brussels, Belgium"
+      },
+      data: {
+        title: "Data collected & purposes",
+        intro: "Personal data are only processed to answer requests sent through the contact form:",
+        items: [
+          {
+            title: "Contact form",
+            content: "name, email address, message content and, where relevant, the artwork you are interested in. These are needed so we can reply."
+          },
+          {
+            title: "Anti-bot security",
+            content: "Cloudflare Turnstile checks that the submission is human. Cloudflare may receive technical data (IP address, browser signals)."
+          }
+        ]
+      },
+      legalBases: {
+        title: "Legal bases (GDPR)",
+        items: [
+          "Article 6.1.f – legitimate interest to respond to the requests you initiate via the form.",
+          "Article 6.1.a – your explicit consent for sending the form and using the security captcha."
+        ]
+      },
+      recipients: {
+        title: "Recipients & processors",
+        items: [
+          "Messages are routed by the email service Resend solely to deliver your request to the artist.",
+          "Cloudflare (Turnstile) processes technical data to validate the anti-bot captcha."
+        ],
+        note: "These providers may process data outside the EU (United States). Standard Contractual Clauses from the European Commission are used by these services to frame such transfers."
+      },
+      retention: {
+        title: "Retention periods",
+        items: [
+          "Messages received: kept in the mailbox for the time needed to handle and follow up the exchange, then archived for up to 24 months unless a legal obligation requires longer.",
+          "Technical data from the captcha: retained by Cloudflare only for the time strictly necessary for verification."
+        ]
+      },
+      rights: {
+        title: "Your GDPR rights",
+        intro: "You can exercise your rights (access, rectification, erasure, restriction, objection, portability) at any time by writing to pinoonali@hotmail.be.",
+        items: [
+          "Right to object: you may object to processing based on legitimate interest.",
+          "Right to withdraw consent: for processing based on your consent.",
+          "Right to lodge a complaint with the Belgian Data Protection Authority."
+        ],
+        outro: "You will receive an answer within one month (extendable by two months in the event of complex requests).",
+        authority: "Data Protection Authority (APD/GBA) – Rue de la Presse 35, 1000 Brussels – contact@apd-gba.be – https://www.autoriteprotectiondonnees.be"
+      },
+      cookies: {
+        title: "Cookies & trackers",
+        intro: "This site does not use advertising or analytics cookies. Only strictly necessary tools may be used:",
+        items: [
+          "Cloudflare Turnstile cookie/token for anti-bot protection.",
+          "Local storage of the selected language (localStorage) to show the site in your chosen language."
+        ]
+      },
+      social: {
+        title: "Social networks",
+        content: "Links to Instagram and Facebook lead to the artist’s official pages. No data is shared automatically: you only transmit data to these platforms when you click or interact with them."
+      }
     },
   },
   nl: {
@@ -437,7 +637,8 @@ export const translations: Record<Language, Translations> = {
       home: "Home",
       gallery: "Galerij",
       about: "Over",
-      contact: "Contact"
+      contact: "Contact",
+      legal: "Juridisch & Privacy"
     },
     themeToggle: {
       light: "Licht",
@@ -571,7 +772,80 @@ export const translations: Record<Language, Translations> = {
     footer: {
       c1: "© 2025 Pino Onali. Alle rechten voorbehouden.",
       c2: "Alle kunstwerken en afbeeldingen op deze site zijn eigendom van de kunstenaar.",
-      c3: "Site ontworpen en ontwikkeld door Davit Nersesyan."
+      c3: "Site ontworpen en ontwikkeld door Davit Nersesyan.",
+      legalLink: "Juridische vermeldingen & privacybeleid"
+    },
+    legalPage: {
+      hero: {
+        title: "Juridische vermeldingen & privacybeleid",
+        subtitle: "Verplichte informatie volgens Belgische wetgeving en de AVG voor het publiceren van deze site.",
+        updated: "Laatst bijgewerkt: 08/12/2025"
+      },
+      editor: {
+        title: "Uitgever van de site",
+        identity: "Site uitgegeven door Pino Onali, onafhankelijke beeldend kunstenaar.",
+        contact: "Hoofdcontact:",
+        location: "Zakelijke locatie: Brussel, België"
+      },
+      data: {
+        title: "Verzamelde gegevens & doeleinden",
+        intro: "Persoonsgegevens worden uitsluitend verwerkt om te antwoorden op aanvragen die via het contactformulier worden verzonden:",
+        items: [
+          {
+            title: "Contactformulier",
+            content: "naam, e-mailadres, bericht en eventueel het kunstwerk dat uw interesse heeft. Deze zijn nodig zodat we kunnen antwoorden."
+          },
+          {
+            title: "Anti-bot beveiliging",
+            content: "Cloudflare Turnstile controleert of de inzending van een mens komt. Cloudflare kan technische gegevens ontvangen (IP-adres, browsersignalen)."
+          }
+        ]
+      },
+      legalBases: {
+        title: "Rechtsgrond (AVG)",
+        items: [
+          "Artikel 6.1.f – gerechtvaardigd belang om te antwoorden op de aanvragen die u via het formulier indient.",
+          "Artikel 6.1.a – uw uitdrukkelijke toestemming voor het verzenden van het formulier en het gebruik van de beveiligingscaptcha."
+        ]
+      },
+      recipients: {
+        title: "Ontvangers & verwerkers",
+        items: [
+          "Berichten worden doorgestuurd via de e-maildienst Resend uitsluitend om uw aanvraag aan de kunstenaar te bezorgen.",
+          "Cloudflare (Turnstile) verwerkt technische gegevens om de anti-bot captcha te valideren."
+        ],
+        note: "Deze leveranciers kunnen gegevens buiten de EU verwerken (Verenigde Staten). Zij maken gebruik van Standaardcontractbepalingen van de Europese Commissie om deze doorgiften te regelen."
+      },
+      retention: {
+        title: "Bewaartermijnen",
+        items: [
+          "Ontvangen berichten: bewaard in de mailbox zolang nodig is voor de opvolging, daarna maximaal 24 maanden gearchiveerd tenzij een wettelijke plicht langere bewaring vereist.",
+          "Technische gegevens van de captcha: door Cloudflare bewaard zolang strikt nodig voor de verificatie."
+        ]
+      },
+      rights: {
+        title: "Uw AVG-rechten",
+        intro: "U kunt uw rechten (inzage, rectificatie, verwijdering, beperking, bezwaar, overdraagbaarheid) uitoefenen door te schrijven naar pinoonali@hotmail.be.",
+        items: [
+          "Recht van bezwaar: u kunt bezwaar maken tegen verwerkingen op basis van gerechtvaardigd belang.",
+          "Recht om toestemming in te trekken: voor verwerkingen die op uw toestemming steunen.",
+          "Recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (GBA) in België."
+        ],
+        outro: "U ontvangt een antwoord binnen één maand (met een mogelijke verlenging van twee maanden bij complexe verzoeken).",
+        authority: "Gegevensbeschermingsautoriteit (GBA/APD) – Drukpersstraat 35, 1000 Brussel – contact@apd-gba.be – https://www.gegevensbeschermingsautoriteit.be"
+      },
+      cookies: {
+        title: "Cookies & trackers",
+        intro: "Deze site gebruikt geen reclame- of analytische cookies. Alleen strikt noodzakelijke middelen kunnen worden gebruikt:",
+        items: [
+          "Cloudflare Turnstile cookie/token voor bescherming tegen bots.",
+          "Lokale opslag van de gekozen taal (localStorage) om de site in de gewenste taal te tonen."
+        ]
+      },
+      social: {
+        title: "Sociale netwerken",
+        content: "Links naar Instagram en Facebook verwijzen naar de officiële pagina’s van de kunstenaar. Er wordt niets automatisch gedeeld: u geeft pas gegevens door aan deze platforms wanneer u klikt of ermee interageert."
+      }
     },
   },
 };
