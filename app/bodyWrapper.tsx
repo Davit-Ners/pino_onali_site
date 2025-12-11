@@ -13,11 +13,5 @@ export default function BodyWrapper({ children }: { children: ReactNode }) {
   else if (pathname.startsWith("/legal")) bgClass = "bg-legal";
   else if (pathname.startsWith("/admin")) bgClass = "bg-admin";
 
-  return <body  className={bgClass} style={{
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-          }}>
-            {children}
-          </body>;
+  return <body className={bgClass}>{children}</body>;
 };

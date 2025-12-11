@@ -51,15 +51,17 @@ html, body {
   color: var(--color-text);
   font-family: var(--font-main);
   overflow-x: hidden;
-  background: transparent;
+  background: var(--color-bg-dark);
 }
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 0;
+  background-color: var(--color-bg-dark);
 
   /* background-image: url("/bg1.jpg");
   background-size: cover;
@@ -201,6 +203,19 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
+  }
+}
+
+@media (pointer: coarse) {
+  body.bg-home,
+  body.bg-galerie,
+  body.bg-about,
+  body.bg-contact,
+  body.bg-admin,
+  body.bg-legal {
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
   }
 }
