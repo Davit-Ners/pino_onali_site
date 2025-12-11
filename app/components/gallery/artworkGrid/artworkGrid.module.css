@@ -154,4 +154,23 @@
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .modal {
+    padding: var(--space-md);
+    width: 92vw;
+    max-width: 92vw;
+    max-height: 85vh;
+  }
+
+  .modalImageWrap {
+    width: 100%;
+    height: min(50vh, 360px);
+  }
+
+  .closeButton {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+  }
 }
