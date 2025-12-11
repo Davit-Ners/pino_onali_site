@@ -81,8 +81,9 @@
   background: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
-  max-width: 90vw;
-  max-height: 90vh;
+  width: 80vw;
+  max-width: 960px;
+  max-height: 85vh;
   padding: var(--space-lg);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8);
   display: flex;
@@ -92,8 +93,8 @@
 
 .modalImageWrap {
   position: relative;
-  width: min(80vw, 960px);
-  height: min(70vh, 720px);
+  width: min(72vw, 880px);
+  height: min(65vh, 620px);
   border-radius: 12px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
