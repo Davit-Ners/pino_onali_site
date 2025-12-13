@@ -74,8 +74,8 @@ export async function POST(req: Request) {
 
         // 1) Mail envoyé à Pino
         const pinoEmail = await resend.emails.send({
-            from: "Site Pino Onali <onboarding@resend.dev>", // à changer plus tard par ton domaine
-            to: ["davit.ners02@gmail.com"], // TODO: remplacer par le vrai mail de Pino
+            from: "Site Pino Onali <contact@pinoonali.com>", // à changer plus tard par ton domaine
+            to: ["contact@pinoonali.com"], // TODO: remplacer par le vrai mail de Pino
             subject: artwork
                 ? `Nouveau message à propos de « ${artwork} »`
                 : `Nouveau message depuis le site`,
@@ -92,8 +92,8 @@ export async function POST(req: Request) {
 
         // 2) Mail de confirmation pour la personne qui a envoyé le formulaire
         const visitorEmail = await resend.emails.send({
-            from: "Pino Onali <onboarding@resend.dev>", // pareil, à remplacer plus tard
-            to: ['davit.ners02@gmail.com'],
+            from: "Pino Onali <contact@pinoonali.com>", // pareil, à remplacer plus tard
+            to: [email],
             subject: artwork
                 ? `Votre message à propos de « ${artwork} » a bien été envoyé`
                 : "Votre message a bien été envoyé",
