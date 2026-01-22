@@ -110,7 +110,7 @@ export default function ArtworkGrid({ artworks }: Props) {
                 </div>
                 <div className={styles.modalInfo}>
                 <h3>{selected.title}</h3>
-                {selected.sizeDescription && <p>⌀ - 100cm</p>}
+                {selected.sizeDescription && <p>{selected.sizeDescription}</p>}
                 </div>
             </div>
             </div>
